@@ -4,6 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FEF9C7"
     tools:context=".LogIn_Scherm">
 
+    <TextView
+        android:id="@+id/login_top"
+        android:layout_width="413dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/login_top"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="38sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="289dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Naam:"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_top" />
+
+    <EditText
+        android:id="@+id/ageInput"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Leeftijd:"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/nameInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nameInput"
+        app:layout_constraintTop_toBottomOf="@+id/nameInput" />
+
+    <Button
+        android:id="@+id/toqueueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        android:background="#213495"
+        android:backgroundTint="#213495"
+        android:text="@string/to_queue"
+        android:textSize="20sp"
+        app:iconTint="#213495"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageInput" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Bessties</string>
+    <string name="login_top">Vul hier je gegevens in</string>
+    <string name="to_queue">Ga naar de wachtrij</string>
 </resources>
