@@ -7,29 +7,43 @@
     android:background="#FEF9C7"
     tools:context=".LogIn_Scherm">
 
+    <EditText
+        android:id="@+id/lastNameInput"
+        android:layout_width="289dp"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Voornaam:"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/firstNameInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/firstNameInput"
+        app:layout_constraintTop_toBottomOf="@+id/firstNameInput" />
+
     <TextView
         android:id="@+id/login_top"
         android:layout_width="413dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/login_top"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="38sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/nameInput"
+        android:id="@+id/firstNameInput"
         android:layout_width="289dp"
         android:layout_height="60dp"
         android:layout_marginTop="36dp"
+        android:background="#FFFFFF"
         android:ems="10"
-        android:hint="Naam:"
+        android:hint="Voornaam:"
         android:inputType="textPersonName"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_top" />
@@ -38,27 +52,27 @@
         android:id="@+id/ageInput"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginTop="8dp"
+        android:background="#FFFFFF"
         android:ems="10"
         android:hint="Leeftijd:"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/nameInput"
+        app:layout_constraintEnd_toEndOf="@+id/lastNameInput"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/nameInput"
-        app:layout_constraintTop_toBottomOf="@+id/nameInput" />
+        app:layout_constraintStart_toStartOf="@+id/lastNameInput"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameInput" />
 
     <Button
-        android:id="@+id/toqueueButton"
+        android:id="@+id/toProfileButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="276dp"
         android:background="#213495"
         android:backgroundTint="#213495"
         android:text="@string/to_queue"
         android:textSize="20sp"
         app:iconTint="#213495"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageInput" />
 </androidx.constraintlayout.widget.ConstraintLayout>
