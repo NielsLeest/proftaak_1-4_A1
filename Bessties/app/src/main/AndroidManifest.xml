@@ -10,8 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bessties">
         <activity
-            android:name=".LogIn_Scherm"
-            android:exported="false" />
+            android:name=".ProfielOverzicht_Scherm"
+            android:exported="false"
+            android:parentActivityName=".ProfielOverzicht_Scherm"/>
+        <activity
+            android:name=".SpelUitleg_Scherm"
+            android:exported="false"
+            android:parentActivityName=".ProfielOverzicht_Scherm"/>
+        <activity
+            android:name=".SpelVoltooid_Scherm"
+            android:exported="false"
+            android:parentActivityName=".ProfielOverzicht_Scherm"/>
         <activity
             android:name=".ScanQR_Scherm"
             android:exported="true">
