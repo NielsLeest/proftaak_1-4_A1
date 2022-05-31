@@ -13,6 +13,12 @@
             android:name=".ProfileView_Activity"
             android:exported="false"
             android:parentActivityName=".ProfileView_Activity"/>
+         <activity
+            android:name=".ToGame_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".LogIn_Activity"
+            android:exported="false" />
         <activity
             android:name=".GameInfo_Activity"
             android:exported="false"

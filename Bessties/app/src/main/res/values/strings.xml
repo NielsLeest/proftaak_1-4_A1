@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Bessties</string>
+    <string name="login_top">Maak een account</string>
+    <string name="to_queue">Ga naar je profiel</string>
 
     <string-array name="spel_uitleg">
         <item>Los het doolhof op</item>
