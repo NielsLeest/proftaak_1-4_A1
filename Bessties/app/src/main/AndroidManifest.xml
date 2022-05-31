@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bessties">
         <activity
-            android:name=".toGameActivity"
+            android:name=".ToGame_Activity"
             android:exported="false" />
         <activity
-            android:name=".LogInActivity"
+            android:name=".LogIn_Activity"
             android:exported="false" />
         <activity
-            android:name=".ScanQRActivity"
+            android:name=".Scan_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
