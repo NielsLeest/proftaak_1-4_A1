@@ -14,7 +14,7 @@ public class GameInfo_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_game_info_screen);
     }
 
-    public void openSpelVoltooid(View view) {
+    public void openGameComplete(View view) {
         Intent intent = new Intent(this, GameComplete_Activity.class);
         startActivity(intent);
     }

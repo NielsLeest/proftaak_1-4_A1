@@ -23,7 +23,7 @@
         android:backgroundTint="#213495"
         android:text="Ga na wachtrij"
         android:textSize="34sp"
-        android:onClick="openWachtrij"
+        android:onClick="openQueue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"

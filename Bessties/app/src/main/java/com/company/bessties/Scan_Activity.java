@@ -16,7 +16,7 @@ public class Scan_Activity extends AppCompatActivity {
     }
 
     public void openLogIn(View view) {
-        Intent intent = new Intent(this, ProfileView_Activity.class);
+        Intent intent = new Intent(this, LogIn_Activity.class);
         startActivity(intent);
     }
 }

@@ -14,7 +14,7 @@ public class ProfileView_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_profile_view_screen);
     }
 
-    public void openWachtrij(View view) {
+    public void openQueue(View view) {
         Intent intent = new Intent(this, GameInfo_Activity.class);
         startActivity(intent);
     }
