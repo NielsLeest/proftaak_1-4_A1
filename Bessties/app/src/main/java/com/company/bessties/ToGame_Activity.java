@@ -18,4 +18,9 @@ public class ToGame_Activity extends AppCompatActivity {
         Intent intent = new Intent(this, BuddyLocation_Activity.class);
         startActivity(intent);
     }
+
+    public void openGameScreen(View view) {
+        Intent intent = new Intent(this, GameInfo_Activity.class);
+        startActivity(intent);
+    }
 }
