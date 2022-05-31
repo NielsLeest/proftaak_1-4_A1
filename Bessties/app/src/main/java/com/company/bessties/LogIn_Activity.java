@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.company.bessties.socket.Client;
+
 public class LogIn_Activity extends AppCompatActivity {
     String firstname;
     String lastName;
@@ -17,11 +19,14 @@ public class LogIn_Activity extends AppCompatActivity {
     EditText lastNameInput;
     EditText ageInput;
     Button toProfileButton;
+    Client client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_screen);
+
+        this.client = new Client();
 
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);
@@ -54,10 +59,16 @@ public class LogIn_Activity extends AppCompatActivity {
         age = Integer.valueOf(ageInput.getText().toString());
         //TODO Add code to go to next page (= profile page)
 
-        showToast(firstname);
-        showToast(lastName);
-        showToast(String.valueOf(age));
-        Intent intent = new Intent(this, GameInfo_Activity.class);
-        startActivity(intent);
+        this.client.sendLogin(firstname, lastName);
+
+        if(this.client.handleConnection()){
+            showToast(firstname);
+            showToast(lastName);
+            showToast(String.valueOf(age));
+            Intent intent = new Intent(this, GameInfo_Activity.class);
+            startActivity(intent);
+        }
+
+
     }
 }
