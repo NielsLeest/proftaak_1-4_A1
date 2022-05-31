@@ -15,7 +15,7 @@ public class ProfileView_Activity extends AppCompatActivity {
     }
 
     public void openQueue(View view) {
-        Intent intent = new Intent(this, GameInfo_Activity.class);
+        Intent intent = new Intent(this, ToGame_Activity.class);
         startActivity(intent);
     }
 }

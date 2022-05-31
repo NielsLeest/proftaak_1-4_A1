@@ -2,9 +2,18 @@
     <string name="app_name">Bessties</string>
     <string name="login_top">Maak een account</string>
     <string name="to_queue">Ga naar je profiel</string>
+    <string name="to_location">Ga naar locatie</string>
+    <string name="hint">Hint!</string>
+    <string name="found">Gevonden!</string>
+    <string name="go_back">Ga terug</string>
     <string name="gameinfo_title">Game informatie</string>
     <string name="gameinfo_text">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</string>
     <string name="startGameButton_text">Start game</string>
+    <string name="gamecomplete_title">Spel voltooid</string>
+    <string name="gamecomplete_text">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</string>
+    <string name="newGameButton_text">Start game</string>
+    <string name="toShop_Text">Naar Pointshop</string>
+    <string name="newGameButton_Text">Nieuw spel starten</string>
 
     <string-array name="spel_uitleg">
         <item>Los het doolhof op</item>
