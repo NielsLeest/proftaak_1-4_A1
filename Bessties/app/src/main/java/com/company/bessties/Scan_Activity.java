@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -14,12 +15,21 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class Scan_Activity extends AppCompatActivity {
 private String message = "";
+private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_screen);
-        scanDieshit();
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scanDieshit();
+            }
+        });
+
+
 
 
     }
@@ -56,6 +66,9 @@ private String message = "";
 
             message = intentResult.getContents();
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+            Intent next = new Intent(this,LogIn_Activity.class);
+            startActivity(next);
+
 
         } else {
             Toast.makeText(getApplicationContext(), "OOPS... you did not scan", Toast.LENGTH_SHORT).show();
