@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LogIn_Scherm extends AppCompatActivity {
+public class LogInActivity extends AppCompatActivity {
     String firstname;
     String lastName;
     int age;
