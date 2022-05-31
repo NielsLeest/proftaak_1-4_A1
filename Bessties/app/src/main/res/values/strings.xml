@@ -2,6 +2,10 @@
     <string name="app_name">Bessties</string>
     <string name="login_top">Maak een account</string>
     <string name="to_queue">Ga naar je profiel</string>
+    <string name="to_location">Ga naar locatie</string>
+    <string name="hint">Hint!</string>
+    <string name="found">Gevonden!</string>
+    <string name="go_back">Ga terug</string>
 
     <string-array name="spel_uitleg">
         <item>Los het doolhof op</item>
