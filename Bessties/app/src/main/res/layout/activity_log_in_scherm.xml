@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:hint="Voornaam:"
+        android:hint="Achternaam:"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/firstNameInput"
         app:layout_constraintHorizontal_bias="0.0"
