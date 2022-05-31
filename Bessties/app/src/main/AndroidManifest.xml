@@ -14,6 +14,10 @@
             android:exported="false"
             android:parentActivityName=".ProfileView_Activity"/>
         <activity
+            android:name=".Queue_Activity"
+            android:exported="false"
+            android:parentActivityName=".ProfileView_Activity"/>
+        <activity
             android:name=".ProfileView_Activity"
             android:exported="false"
             android:parentActivityName=".ProfileView_Activity" />

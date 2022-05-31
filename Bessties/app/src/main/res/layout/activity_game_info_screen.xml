@@ -10,7 +10,7 @@
         android:id="@+id/startGameButton"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:text="@string/startGameButton_text"
+        android:text="startGameButton_text"
         android:textSize="20sp"
         android:onClick="openGameComplete"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +42,7 @@
                 android:id="@+id/gameinfo_Title_Textfield"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/gameinfo_title"
+                android:text="gameinfo_title"
                 android:textAlignment="center"
                 android:textSize="48sp" />
 
@@ -50,7 +50,7 @@
                 android:id="@+id/gameinfo_Text_Textfield"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/gameinfo_text"
+                android:text="gameinfo_text"
                 android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>

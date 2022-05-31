@@ -14,6 +14,8 @@
     <string name="newGameButton_text">Start game</string>
     <string name="toShop_Text">Naar Pointshop</string>
     <string name="newGameButton_Text">Nieuw spel starten</string>
+    <string name="verder_gaan">Verder gaan</string>
+    <string name="opnieuw_zoeken">Opnieuw zoeken</string>
 
     <string-array name="spel_uitleg">
         <item>Los het doolhof op</item>
