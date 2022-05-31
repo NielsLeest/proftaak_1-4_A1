@@ -14,34 +14,27 @@ import java.net.Socket;
 public class Client extends Application {
 
     private Socket socket;
-    private TextField text;
+    private TextField nameText;
     private Button sendButton;
     private Button button;
-    private TextField textField;
+    private TextField barcodeText;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         this.socket = new Socket("localhost", 8080);
 
-        GridPane pane = new GridPane();
-
-        this.text = new TextField();
-        pane.add(this.text, 0, 0);
-
+        this.nameText = new TextField();
+        this.barcodeText = new TextField();
         this.sendButton = new Button("send");
+
         this.sendButton.setOnAction(e ->{
-            sendLogin(this.text.getText());
+            sendLogin(this.nameText.getText());
         });
+
+        GridPane pane = new GridPane();
+        pane.add(this.nameText, 0, 0);
         pane.add(this.sendButton, 0, 1);
-
-        this.button = new Button();
-        this.textField = new TextField();
-        this.button.setOnAction(e -> {
-            sendBarcode(this.textField.getText());
-        });
-
-        pane.add(this.textField, 1, 0);
-        pane.add(this.button, 1, 1);
+        pane.add(this.barcodeText, 1, 0);
 
         primaryStage.setScene(new Scene(pane));
         primaryStage.show();
@@ -56,18 +49,13 @@ public class Client extends Application {
     public void handleConnection(){
         while (true){
             try {
-                //Socket socket = new Socket("localhost", 8080);
-
                 DataInputStream input = new DataInputStream(this.socket.getInputStream());
 
-                System.out.println(this.socket.isConnected());
                 while (this.socket.isConnected()) {
                     boolean message = input.readBoolean();
-                    //String[] chunks = message.split(" ");
 
-                    this.textField.setText("" + message);
+                    this.barcodeText.setText("" + message);
                 }
-                System.out.println(this.socket.isConnected());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -76,29 +64,25 @@ public class Client extends Application {
 
     public void sendLogin(String username){
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(this.socket.getOutputStream());
-            DataOutputStream output = new DataOutputStream(this.socket.getOutputStream());
-            output.writeUTF("login");
-            output.flush();
-            oos.writeObject(new Person(username));
-            oos.flush();
+            DataOutputStream ouput = new DataOutputStream(this.socket.getOutputStream());
+            ouput.writeUTF("login " + this.nameText.getText() + " " + this.barcodeText.getText());
+            ouput.flush();
             System.out.println("client sent request");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void sendBarcode(String barcode){
-        try {
-            DataOutputStream output = new DataOutputStream(this.socket.getOutputStream());
-            output.writeUTF("barcode" + " " + barcode);
-            output.flush();
-            System.out.println("client sent barcode");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+//    public void sendBarcode(String barcode){
+//        try {
+//            DataOutputStream output = new DataOutputStream(this.socket.getOutputStream());
+//            output.writeUTF("barcode" + " " + barcode);
+//            output.flush();
+//            System.out.println("client sent barcode");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 
 }

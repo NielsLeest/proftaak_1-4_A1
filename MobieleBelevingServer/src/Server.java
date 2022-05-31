@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Server {
+    //Namen kunnen niet met spaties nu!!
     private static ArrayList<ServerClient> clients = new ArrayList<>();
     public static ArrayList<String> barcodes = new ArrayList<>(Arrays.asList("012345", "543210"));
 

@@ -6,7 +6,9 @@ public class ServerClient {
     private Socket socket;
     Person person;
     private DataOutputStream output;
+    private ObjectInputStream inputStream;
     private String barcode = "";
+    private DataInputStream input;
 
     public ServerClient(Socket socket) {
         this.socket = socket;
@@ -17,31 +19,22 @@ public class ServerClient {
         while (this.socket.isConnected()){
             try {
                 DataInputStream input = new DataInputStream(this.socket.getInputStream());
-
-                //inputStream.readObject();
+                this.output = new DataOutputStream(this.socket.getOutputStream());
 
                 String request = input.readUTF();
                 String[] chunks = request.split(" ");
-                System.out.println(chunks[0]);
 
                 switch (chunks[0]){
                     case "login":
-                        System.out.println("login request");
-                        ObjectInputStream inputStream = new ObjectInputStream(this.socket.getInputStream());
-                        try {
-                            handleLogin((Person) inputStream.readObject());
-                        } catch (ClassNotFoundException e) {
-                            e.printStackTrace();
-                        }
+                        System.out.println(chunks[2]);
+                        Person person = new Person(chunks[1], chunks[2]);
+                        boolean isLoggedIn = handleLogin(person);
+                        this.output.writeBoolean(isLoggedIn);
+                        this.output.flush();
+
                         break;
-                    case "barcode":
-                        this.barcode = chunks[1];
-                        output = new DataOutputStream(this.socket.getOutputStream());
-                        output.writeBoolean(handleBarcode(this.barcode));
-                        output.flush();
-                        break;
+
                 }
-                request = "";
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -49,18 +42,14 @@ public class ServerClient {
     }
 
     public boolean handleLogin(Person person){
-        this.person = person;
-        System.out.println(this.person.getUserName() + " added");
-        return true;
-    }
-
-    public boolean handleBarcode(String userBarcode){
-        for (String barcode : Server.barcodes) {
-            if(barcode.equals(userBarcode)){
-                return true;
-            }
+        if(Server.barcodes.contains(person.getBarcode())){
+            this.person = person;
+            System.out.println(this.person.getUserName() + " added");
+            return true;
         }
-        return false;
+        else {
+            return false;
+        }
     }
 
     public Person getPerson(){
