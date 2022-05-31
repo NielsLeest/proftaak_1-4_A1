@@ -14,8 +14,8 @@ public class GameComplete_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_game_complete_screen);
     }
 
-    public void openProfile(View view) {
-        Intent intent = new Intent(this, ProfileView_Activity.class);
+    public void openGameScreen(View view) {
+        Intent intent = new Intent(this, GameInfo_Activity.class);
         startActivity(intent);
     }
 }

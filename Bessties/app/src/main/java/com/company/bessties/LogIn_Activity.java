@@ -57,7 +57,7 @@ public class LogIn_Activity extends AppCompatActivity {
         showToast(firstname);
         showToast(lastName);
         showToast(String.valueOf(age));
-        Intent intent = new Intent(this, GameInfo_Activity.class);
+        Intent intent = new Intent(this, ProfileView_Activity.class);
         startActivity(intent);
     }
 }
