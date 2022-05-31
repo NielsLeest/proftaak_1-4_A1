@@ -6,16 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class ScanQR_Scherm extends AppCompatActivity {
+public class Scan_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scan_qr);
+        setContentView(R.layout.activity_scan_screen);
     }
 
     public void openLogIn(View view) {
-        Intent intent = new Intent(this, ProfielOverzicht_Scherm.class);
+        Intent intent = new Intent(this, ProfileView_Activity.class);
         startActivity(intent);
     }
 }

@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bessties">
         <activity
-            android:name=".ProfielOverzicht_Scherm"
+            android:name=".ProfileView_Activity"
             android:exported="false"
-            android:parentActivityName=".ProfielOverzicht_Scherm"/>
+            android:parentActivityName=".ProfileView_Activity"/>
         <activity
-            android:name=".SpelUitleg_Scherm"
+            android:name=".GameInfo_Activity"
             android:exported="false"
-            android:parentActivityName=".ProfielOverzicht_Scherm"/>
+            android:parentActivityName=".ProfileView_Activity"/>
         <activity
-            android:name=".SpelVoltooid_Scherm"
+            android:name=".GameComplete_Activity"
             android:exported="false"
-            android:parentActivityName=".ProfielOverzicht_Scherm"/>
+            android:parentActivityName=".ProfileView_Activity"/>
         <activity
-            android:name=".ScanQR_Scherm"
+            android:name=".Scan_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

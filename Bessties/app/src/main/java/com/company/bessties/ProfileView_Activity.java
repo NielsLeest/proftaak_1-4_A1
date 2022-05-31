@@ -6,16 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class SpelVoltooid_Scherm extends AppCompatActivity {
+public class ProfileView_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spel_voltooid_scherm);
+        setContentView(R.layout.activity_profile_view_screen);
     }
 
-    public void openProfiel(View view) {
-        Intent intent = new Intent(this, ProfielOverzicht_Scherm.class);
+    public void openWachtrij(View view) {
+        Intent intent = new Intent(this, GameInfo_Activity.class);
         startActivity(intent);
     }
 }
