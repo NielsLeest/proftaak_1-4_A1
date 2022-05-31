@@ -15,7 +15,7 @@ public class Queue_Activity extends AppCompatActivity {
     }
 
     public void openBuddyLocation(View view) {
-        Intent intent = new Intent(this, GameInfo_Activity.class);
+        Intent intent = new Intent(this, BuddyLocation_Activity.class);
         startActivity(intent);
     }
 
