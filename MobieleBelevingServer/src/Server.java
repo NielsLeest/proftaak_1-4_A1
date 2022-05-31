@@ -8,6 +8,7 @@ public class Server {
     //Namen kunnen niet met spaties nu!!
     private static ArrayList<ServerClient> clients = new ArrayList<>();
     public static ArrayList<String> barcodes = new ArrayList<>(Arrays.asList("012345", "543210"));
+    public static MatchQueue queue = new MatchQueue();
 
     public static void main(String[] args){
         new Thread(Server::server).start();
@@ -24,5 +25,4 @@ public class Server {
             e.printStackTrace();
         }
     }
-
 }

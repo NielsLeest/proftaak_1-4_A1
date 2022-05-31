@@ -18,7 +18,7 @@ public class ServerClient {
     public void handleRequest() {
         while (this.socket.isConnected()){
             try {
-                DataInputStream input = new DataInputStream(this.socket.getInputStream());
+                this.input = new DataInputStream(this.socket.getInputStream());
                 this.output = new DataOutputStream(this.socket.getOutputStream());
 
                 String request = input.readUTF();
@@ -34,6 +34,21 @@ public class ServerClient {
 
                         break;
 
+                    case "join":
+                        if (this.person == null)
+                            break;
+
+                        Server.queue.join(this);
+
+                        break;
+
+                    case "leave":
+                        if (this.person == null || !Server.queue.contains(this))
+                            break;
+
+                        Server.queue.leave(this);
+
+                        break;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
