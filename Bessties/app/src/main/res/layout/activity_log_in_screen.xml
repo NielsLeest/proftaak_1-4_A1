@@ -70,6 +70,7 @@
         android:backgroundTint="#213495"
         android:text="@string/to_queue"
         android:textSize="20sp"
+        android:onClick="openProfile"
         app:iconTint="#213495"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

@@ -26,20 +26,20 @@ public class LogIn_Activity extends AppCompatActivity {
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);
         ageInput = (EditText) findViewById(R.id.ageInput);
-        toProfileButton = (Button) findViewById(R.id.toProfileButton);
-        toProfileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                 firstname = firstNameInput.getText().toString();
-                 lastName = lastNameInput.getText().toString();
-                 age = Integer.valueOf(ageInput.getText().toString());
-                 //TODO Add code to go to next page (= profile page)
-
-                 showToast(firstname);
-                 showToast(lastName);
-                 showToast(String.valueOf(age));
-            }
-        });
+//        toProfileButton = (Button) findViewById(R.id.toProfileButton);
+//        toProfileButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                 firstname = firstNameInput.getText().toString();
+//                 lastName = lastNameInput.getText().toString();
+//                 age = Integer.valueOf(ageInput.getText().toString());
+//                 //TODO Add code to go to next page (= profile page)
+//
+//                 showToast(firstname);
+//                 showToast(lastName);
+//                 showToast(String.valueOf(age));
+//            }
+//        });
     }
 
     //TODO Remove this code when name + age can be sended to server
@@ -48,4 +48,16 @@ public class LogIn_Activity extends AppCompatActivity {
     }
 
 
+    public void openProfile(View view) {
+        firstname = firstNameInput.getText().toString();
+        lastName = lastNameInput.getText().toString();
+        age = Integer.valueOf(ageInput.getText().toString());
+        //TODO Add code to go to next page (= profile page)
+
+        showToast(firstname);
+        showToast(lastName);
+        showToast(String.valueOf(age));
+        Intent intent = new Intent(this, GameInfo_Activity.class);
+        startActivity(intent);
+    }
 }
