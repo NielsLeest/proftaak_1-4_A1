@@ -36,12 +36,17 @@ public class LogIn_Activity extends AppCompatActivity {
     public void openProfile(View view) {
         firstname = firstNameInput.getText().toString();
         lastName = lastNameInput.getText().toString();
-        age = Integer.valueOf(ageInput.getText().toString());
 
-        if (!ageIsValid(age)){
-            ageInput.setText("");
+        try {
+            age = Integer.valueOf(ageInput.getText().toString());
+            if (!ageIsValid(age)){
+                ageInput.setText("");
+                showToast(getString(R.string.age_invalid));
+                return;
+            }
+        }catch (Exception e){
             return;
-        }
+        };
 
         if (!nameIsValid(firstname)){
             firstNameInput.setText("");
@@ -67,7 +72,6 @@ public class LogIn_Activity extends AppCompatActivity {
 
     public boolean ageIsValid(int age){
         if (age < 18){
-            showToast(getString(R.string.age_invalid));
             return false;
         }
         return true;
