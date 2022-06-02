@@ -16,7 +16,9 @@
     <string name="newGameButton_Text">Nieuw spel starten</string>
     <string name="verder_gaan">Verder gaan</string>
     <string name="opnieuw_zoeken">Opnieuw zoeken</string>
-
+    <string name="firstname_invalid">De gegeven voornaam is niet geldig</string>
+    <string name="lastname_invalid">De gegeven achternaam is niet geldig</string>
+    <string name="age_invalid">U bent te jong</string>
     <string-array name="spel_uitleg">
         <item>Los het doolhof op</item>
         <item>Ga terug naar scherm</item>
