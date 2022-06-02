@@ -3,6 +3,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Server {
     //Namen kunnen niet met spaties nu!!
@@ -12,6 +13,32 @@ public class Server {
 
     public static void main(String[] args) {
         new Thread(Server::server).start();
+        new Thread(Server::commander).start();
+    }
+
+
+
+    private static void commander() {
+        Scanner reader = new Scanner(System.in);
+        while (true) {
+            String command = reader.nextLine();
+
+            switch (command) {
+                case "":
+                    System.out.println("empty string");
+                    break;
+                case "start":
+                    if(mazeGame != null) {
+                        System.out.println("start game");
+                        mazeGame.startGame();
+
+                    }
+                    break;
+                case "kill":
+                    killserver();
+                    break;
+            }
+        }
     }
 
     public static void server() {
@@ -26,7 +53,7 @@ public class Server {
                     mazeGame = new GameServer(newSocket);
                     System.out.println("dit is een esp!");
 
-                } else {
+                } else if (!newSocket.getInetAddress().toString().equals("/192.168.137.22")) {
                     clients.add(new ServerClient(newSocket));
                 }
             }
@@ -36,4 +63,8 @@ public class Server {
         }
     }
 
+
+    public static void killserver() {
+        mazeGame = null;
+    }
 }

@@ -24,12 +24,13 @@ public class GameServer {
 
 
                     while(true){
-                        int length = DIS.available();
-                        byte[] myMessage = new byte[length];
-                        DIS.readFully(myMessage);
-                        String clientMessage = translate(myMessage);
-                        System.out.println(clientMessage);
-                        
+                        if(DIS.available()>0) {
+                            int length = DIS.available();
+                            byte[] myMessage = new byte[length];
+                            DIS.readFully(myMessage);
+                            String clientMessage = translate(myMessage);
+                            System.out.println(clientMessage);
+                        }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -37,6 +38,26 @@ public class GameServer {
 
 
             }
+            if(!socket.isConnected()){
+                Server.killserver();
+
+        }
+    }
+
+
+
+
+
+    public void startGame(){
+        try {
+            System.out.println("the game is starting up");
+            DOS.writeUTF("A");
+            DOS.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
     private static String translate(byte[] word)
     {

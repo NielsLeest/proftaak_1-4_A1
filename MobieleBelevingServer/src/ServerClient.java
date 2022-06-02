@@ -10,6 +10,12 @@ public class ServerClient {
     private String barcode = "";
     private DataInputStream input;
 
+    public void setGame(GameServer game) {
+        this.game = game;
+    }
+
+    private GameServer game;
+
     public ServerClient(Socket socket) {
         this.socket = socket;
         new Thread(this::handleRequest).start();
