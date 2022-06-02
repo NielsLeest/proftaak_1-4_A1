@@ -1,5 +1,6 @@
 package com.company.bessties;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.company.bessties.socket.Client;
+
 public class LogIn_Activity extends AppCompatActivity {
     String firstname;
     String lastName;
@@ -17,11 +20,16 @@ public class LogIn_Activity extends AppCompatActivity {
     EditText lastNameInput;
     EditText ageInput;
     Button toProfileButton;
+    Client client;
+    boolean isValid = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_screen);
+
+        this.client = new Client();
+        new Thread(this.client::startConnection).start();
 
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);
@@ -59,6 +67,17 @@ public class LogIn_Activity extends AppCompatActivity {
             return;
         }
 
+        
+        Thread thread = new Thread(() -> {
+            isValid = this.client.sendLogin(firstname, lastName);
+
+        });
+        thread.start();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Intent intent = new Intent(this, ProfileView_Activity.class);
         startActivity(intent);
     }
