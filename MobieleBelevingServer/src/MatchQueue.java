@@ -2,21 +2,26 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MatchQueue {
-    private List<ServerClient> queue;
+    private List<ServerClient> waiting;
 
     public MatchQueue() {
-        queue = new LinkedList<>();
+        waiting = new LinkedList<>();
     }
 
     public void join(ServerClient person) {
-        queue.add(person);
+        person.buddyQueue.addAll(waiting);
+        waiting.add(person);
     }
 
     public void leave(ServerClient person) {
-        queue.remove(person);
+        waiting.remove(person);
+        person.buddyQueue = new LinkedList<>();
+        for (ServerClient serverClient : waiting) {
+            serverClient.revokeRequest(person);
+        }
     }
 
     public boolean contains(ServerClient person) {
-        return queue.contains(person);
+        return waiting.contains(person);
     }
 }

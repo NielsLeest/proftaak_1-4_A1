@@ -1,10 +1,16 @@
 import java.io.*;
 import java.net.Socket;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class ServerClient {
 
     private Socket socket;
     Person person;
+
+    Queue<ServerClient> buddyQueue;
+    ServerClient pendingRequest;
+
     private DataOutputStream output;
     private ObjectInputStream inputStream;
     private String barcode = "";
@@ -13,6 +19,8 @@ public class ServerClient {
     public ServerClient(Socket socket) {
         this.socket = socket;
         new Thread(this::handleRequest).start();
+
+        this.buddyQueue = new LinkedList<>();
     }
 
     public void handleRequest() {
@@ -71,4 +79,21 @@ public class ServerClient {
         return this.person;
     }
 
+    public void revokeRequest(ServerClient person) {
+        try {
+            buddyQueue.remove(person);
+            if (pendingRequest.equals(person)) {
+                output.writeUTF("revoke " + this.person.getBarcode() + " " + person.barcode);
+                pendingRequest = null;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void pollRequest() {
+        if (pendingRequest == null) {
+            pendingRequest = buddyQueue.poll();
+        }
+    }
 }
