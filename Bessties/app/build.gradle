@@ -2,13 +2,17 @@ plugins {
     id 'com.android.application'
 }
 
+task wrapper(type: Wrapper){
+    gradleVersion = '7.2'
+}
+
 android {
-    compileSdk 32
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.company.bessties"
         minSdk 21
-        targetSdk 32
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
