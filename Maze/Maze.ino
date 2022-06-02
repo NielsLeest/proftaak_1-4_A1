@@ -30,6 +30,7 @@ int in2 = 25;
 static int deltaTime = 5;
 static int blinkDuration = 250;
 int blinkTime = 0;
+int remainingTime = 0;
 
 
 bool walls[8][16] = {
@@ -45,7 +46,25 @@ bool walls[8][16] = {
 
 void setup() {
   //wifi setup
-  Serial.begin(115200);
+  
+  serverconnect();
+  //maze setup
+  Serial.println("Testing movement...");
+
+ generateWalls();
+  matrix1.begin(0x70);
+  matrix2.begin(0x72);
+  displayAll();
+  while(command != 65){
+  waitforresponse();
+  }
+  startGame();
+}
+
+void loop() {
+  return;
+}
+void serverconnect(){
    if (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS)) {
     Serial.println("STA Failed to configure");
   }
@@ -56,30 +75,6 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  serverconnect();
-  //maze setup
-  Serial.println("Testing movement...");
-
-  //generateWalls();
-  matrix1.begin(0x70);
-  matrix2.begin(0x72);
-  displayAll();
-}
-
-void loop() {
-  while(command != 65){
-  waitforresponse();
-  }
-  int xTarget = analogRead(in1)/256;
-  int yTarget = analogRead(in2)/512;
-  
-  delay(deltaTime);
-  blinkTime += deltaTime;
-  tryMove(xTarget, yTarget);
-  displayAll();
-}
-void serverconnect(){
-  
 //    const uint16_t port = 80;
 //    const char * host = "192.168.1.1"; // ip or dns
     const uint16_t port = 8080;
@@ -107,11 +102,8 @@ void serverconnect(){
  
 
   //wait for the server's reply to become available
-  }
-  void generateWalls() {
-  return;
-}
  
+}
 void waitforresponse(){
  
   while(client.connected()&& command != 65){  
@@ -129,8 +121,23 @@ void waitforresponse(){
       
 }
 }
+void startGame() {
+  remainingTime = 5000;
+  
+  while (gameRunning()) {
+    int xTarget = analogRead(in1)/256;
+    int yTarget = analogRead(in2)/512;
+  
+    delay(deltaTime);
+    blinkTime += deltaTime;
+    remainingTime -= deltaTime;
+    tryMove(xTarget, yTarget);
+    displayAll();
+    Serial.println(remainingTime);
+  }
 
-
+  emptyScreens();
+}
 
 // movement
 bool tryMove(int tx, int ty) {
@@ -174,7 +181,19 @@ int signum(int value) {
   return -1;
 }
 
+bool gameRunning() {
+  if (remainingTime <= 0)
+    return false;
 
+  if (xPos == 0 || xPos == 15 || yPos == 0 || yPos == 7)
+    return false;
+
+  return true;
+}
+
+void generateWalls() {
+  return;
+}
 
 void printMaze() {
   Serial.println();
@@ -214,4 +233,11 @@ void plotCutout(Adafruit_8x8matrix matrix, int xOff, int yOff) {
   }
   Serial.println();
   matrix.writeDisplay();
+}
+
+void emptyScreens() {
+  matrix1.clear();
+  matrix2.clear();
+  matrix1.writeDisplay();
+  matrix2.writeDisplay();
 }
