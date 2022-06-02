@@ -22,14 +22,25 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="250dp"
-        android:layout_height="75dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="96dp"
         android:text="Scan ticket"
-        android:textSize="24sp"
+        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="volgned scherm"
+        android:onClick="openLogIn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

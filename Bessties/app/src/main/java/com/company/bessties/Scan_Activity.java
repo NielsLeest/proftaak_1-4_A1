@@ -34,10 +34,10 @@ private Button button;
 
     }
 
-//    public void openLogIn(View view) {
-//        Intent intent = new Intent(this, LogIn_Activity.class);
-//        startActivity(intent);
-//    }
+    public void openLogIn(View view) {
+        Intent intent = new Intent(this, LogIn_Activity.class);
+        startActivity(intent);
+    }
 
     public void scanDieshit() {
 
