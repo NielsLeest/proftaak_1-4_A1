@@ -26,23 +26,8 @@ public class LogIn_Activity extends AppCompatActivity {
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);
         ageInput = (EditText) findViewById(R.id.ageInput);
-//        toProfileButton = (Button) findViewById(R.id.toProfileButton);
-//        toProfileButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                 firstname = firstNameInput.getText().toString();
-//                 lastName = lastNameInput.getText().toString();
-//                 age = Integer.valueOf(ageInput.getText().toString());
-//                 //TODO Add code to go to next page (= profile page)
-//
-//                 showToast(firstname);
-//                 showToast(lastName);
-//                 showToast(String.valueOf(age));
-//            }
-//        });
     }
 
-    //TODO Remove this code when name + age can be sended to server
     private void showToast(String text){
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
@@ -51,13 +36,44 @@ public class LogIn_Activity extends AppCompatActivity {
     public void openProfile(View view) {
         firstname = firstNameInput.getText().toString();
         lastName = lastNameInput.getText().toString();
-        age = Integer.valueOf(ageInput.getText().toString());
-        //TODO Add code to go to next page (= profile page)
 
-        showToast(firstname);
-        showToast(lastName);
-        showToast(String.valueOf(age));
+        try {
+            age = Integer.valueOf(ageInput.getText().toString());
+            if (!ageIsValid(age)){
+                ageInput.setText("");
+                showToast(getString(R.string.age_invalid));
+                return;
+            }
+        }catch (Exception e){
+            return;
+        };
+
+        if (!nameIsValid(firstname)){
+            firstNameInput.setText("");
+            showToast(getString(R.string.firstname_invalid));
+            return;
+        }
+        if (!nameIsValid(lastName)){
+            lastNameInput.setText("");
+            showToast(getString(R.string.lastname_invalid));
+            return;
+        }
+
         Intent intent = new Intent(this, ProfileView_Activity.class);
         startActivity(intent);
+    }
+
+    public boolean nameIsValid(String name){
+        if (!name.matches("^[a-zA-Záéíóúàèìòùâêîôûãõñç]{2,32}$")){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean ageIsValid(int age){
+        if (age < 18){
+            return false;
+        }
+        return true;
     }
 }

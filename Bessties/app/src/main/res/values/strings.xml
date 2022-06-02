@@ -16,6 +16,9 @@
     <string name="newGameButton_Text">Nieuw spel starten</string>
     <string name="verder_gaan">Verder gaan</string>
     <string name="opnieuw_zoeken">Opnieuw zoeken</string>
+    <string name="firstname_invalid">De gegeven voornaam is niet geldig</string>
+    <string name="lastname_invalid">De gegeven achternaam is niet geldig</string>
+    <string name="age_invalid">U bent te jong</string>
     <string name="meetBuddyTitle_Text">Ontmoet jouw buddy op de aangegeven locatie</string>
     <string name="startButton_Text">Starten</string>
     <string name="buddyLocationMap_ContentDescription">BuddyLocationMap</string>
