@@ -9,7 +9,7 @@ public class Server {
     private static ArrayList<ServerClient> clients = new ArrayList<>();
     public static ArrayList<String> barcodes = new ArrayList<>(Arrays.asList("012345", "543210"));
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         new Thread(Server::server).start();
     }
 
@@ -17,9 +17,18 @@ public class Server {
         try {
             ServerSocket serverSocket = new ServerSocket(8080);
             while (true) {
+
+
                 Socket newSocket = serverSocket.accept();
-                clients.add(new ServerClient(newSocket));
+                System.out.println(newSocket.getInetAddress());
+                if (newSocket.getInetAddress().toString().equals("/192.168.137.22")) {
+
+                    System.out.println("dit is een esp!");
+                } else {
+                    clients.add(new ServerClient(newSocket));
+                }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

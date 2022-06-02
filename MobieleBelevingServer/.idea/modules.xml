@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/MobieleBelevingServer.iml" filepath="$PROJECT_DIR$/.idea/MobieleBelevingServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/MobieleBelevingServer.iml" filepath="$PROJECT_DIR$/MobieleBelevingServer.iml" />
     </modules>
   </component>
