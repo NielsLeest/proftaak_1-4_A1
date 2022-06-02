@@ -8,6 +8,7 @@ public class Server {
     //Namen kunnen niet met spaties nu!!
     private static ArrayList<ServerClient> clients = new ArrayList<>();
     public static ArrayList<String> barcodes = new ArrayList<>(Arrays.asList("012345", "543210"));
+    public static GameServer mazeGame;
 
     public static void main(String[] args) {
         new Thread(Server::server).start();
@@ -21,9 +22,10 @@ public class Server {
 
                 Socket newSocket = serverSocket.accept();
                 System.out.println(newSocket.getInetAddress());
-                if (newSocket.getInetAddress().toString().equals("/192.168.137.22")) {
-
+                if (newSocket.getInetAddress().toString().equals("/192.168.137.22")&& mazeGame == null) {
+                    mazeGame = new GameServer(newSocket);
                     System.out.println("dit is een esp!");
+
                 } else {
                     clients.add(new ServerClient(newSocket));
                 }
