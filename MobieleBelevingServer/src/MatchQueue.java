@@ -10,6 +10,9 @@ public class MatchQueue {
 
     public void join(ServerClient person) {
         person.buddyQueue.addAll(queue);
+        for (ServerClient serverClient : queue) {
+            serverClient.buddyQueue.add(person);
+        }
         queue.add(person);
     }
 

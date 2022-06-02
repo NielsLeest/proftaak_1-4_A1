@@ -10,6 +10,7 @@ public class ServerClient {
 
     Queue<ServerClient> buddyQueue;
     ServerClient pendingRequest;
+    Team team;
 
     private DataOutputStream output;
     private ObjectInputStream inputStream;
@@ -95,5 +96,16 @@ public class ServerClient {
         if (pendingRequest == null) {
             pendingRequest = buddyQueue.poll();
         }
+    }
+
+    public void joinTeam(Team team) {
+        this.team = team;
+        team.join(this);
+        Server.queue.leave(this);
+    }
+
+    public void leaveTeam() {
+        this.team.leave(this);
+        this.team = null;
     }
 }
