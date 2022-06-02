@@ -15,8 +15,8 @@ public class Team {
 
     public void leave(ServerClient person) {
         members.remove(person);
-        if (members.size() <= 1) {
-            members.remove(0);
+        if (members.size() == 1) {
+            members.get(0).leaveTeam();
         }
     }
 }
