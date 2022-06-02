@@ -1,5 +1,6 @@
 package com.company.bessties;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,6 +21,7 @@ public class LogIn_Activity extends AppCompatActivity {
     EditText ageInput;
     Button toProfileButton;
     Client client;
+    boolean isValid = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,16 +62,24 @@ public class LogIn_Activity extends AppCompatActivity {
         age = Integer.valueOf(ageInput.getText().toString());
         //TODO Add code to go to next page (= profile page)
 
-        String isValid = this.client.sendLogin(firstname, lastName);
+        Thread thread = new Thread(() -> {
+            isValid = this.client.sendLogin(firstname, lastName);
 
-        if(isValid.equals("true")){
+        });
+        thread.start();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if(isValid) {
+
             showToast(firstname);
             showToast(lastName);
             showToast(String.valueOf(age));
             Intent intent = new Intent(this, GameInfo_Activity.class);
             startActivity(intent);
         }
-
-
     }
 }

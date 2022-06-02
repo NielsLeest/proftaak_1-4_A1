@@ -54,8 +54,8 @@ public class Client {
                 DataInputStream input = new DataInputStream(this.socket.getInputStream());
 
                 while (this.socket.isConnected()) {
-                    boolean message = input.readBoolean();
-                    if(message){
+                    String message = input.readUTF();
+                    if(message.equals("true")){
                         this.validation = true;
                     }
                 }
@@ -65,17 +65,17 @@ public class Client {
         }
     }
 
-    public String sendLogin(String username, String barcode){
+    public boolean sendLogin(String username, String barcode){
         try {
             DataOutputStream ouput = new DataOutputStream(this.socket.getOutputStream());
             ouput.writeUTF("login " + username + " " + barcode);
             ouput.flush();
             DataInputStream input = new DataInputStream(this.socket.getInputStream());
-            return input.readUTF();
+            return input.readBoolean();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "" + false;
+        return false;
     }
 
     public boolean getvalidation(){
