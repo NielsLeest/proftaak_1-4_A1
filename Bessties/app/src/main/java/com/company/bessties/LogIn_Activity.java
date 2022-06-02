@@ -59,7 +59,7 @@ public class LogIn_Activity extends AppCompatActivity {
     }
 
     public boolean nameIsValid(String name){
-        if (!name.matches("^\\D{2,32}$")){
+        if (!name.matches("^[a-zA-Záéíóúàèìòùâêîôûãõñç]{2,32}$")){
             return false;
         }
         return true;
