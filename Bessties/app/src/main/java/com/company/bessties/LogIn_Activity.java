@@ -27,6 +27,7 @@ public class LogIn_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in_screen);
 
         this.client = new Client();
+        new Thread(this.client::startConnection).start();
 
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);
@@ -59,9 +60,9 @@ public class LogIn_Activity extends AppCompatActivity {
         age = Integer.valueOf(ageInput.getText().toString());
         //TODO Add code to go to next page (= profile page)
 
-        this.client.sendLogin(firstname, lastName);
+        String isValid = this.client.sendLogin(firstname, lastName);
 
-        if(this.client.handleConnection()){
+        if(isValid.equals("true")){
             showToast(firstname);
             showToast(lastName);
             showToast(String.valueOf(age));

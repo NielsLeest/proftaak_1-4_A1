@@ -7,15 +7,18 @@ import java.net.Socket;
 
 public class Client {
     private Socket socket;
+    private boolean validation = false;
 
-    public Client(){
+
+
+    public void startConnection(){
         try {
-            this.socket = new Socket("localhost", 8080);
+            this.socket = new Socket("10.0.2.2", 8000);
+            System.out.println("socketed");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        new Thread(this::handleConnection).start();
     }
 
 //    @Override
@@ -45,15 +48,16 @@ public class Client {
 //        launch(args);
 //    }
 
-    public boolean handleConnection(){
+    public void handleConnection(){
         while (true){
             try {
                 DataInputStream input = new DataInputStream(this.socket.getInputStream());
 
                 while (this.socket.isConnected()) {
                     boolean message = input.readBoolean();
-
-                    return message;
+                    if(message){
+                        this.validation = true;
+                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -61,16 +65,23 @@ public class Client {
         }
     }
 
-    public void sendLogin(String username, String barcode){
+    public String sendLogin(String username, String barcode){
         try {
             DataOutputStream ouput = new DataOutputStream(this.socket.getOutputStream());
             ouput.writeUTF("login " + username + " " + barcode);
             ouput.flush();
-            System.out.println("client sent request");
+            DataInputStream input = new DataInputStream(this.socket.getInputStream());
+            return input.readUTF();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return "" + false;
     }
+
+    public boolean getvalidation(){
+        return this.validation;
+    }
+
 
 //    public void sendBarcode(String barcode){
 //        try {
