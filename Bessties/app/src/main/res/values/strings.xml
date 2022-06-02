@@ -16,6 +16,9 @@
     <string name="newGameButton_Text">Nieuw spel starten</string>
     <string name="verder_gaan">Verder gaan</string>
     <string name="opnieuw_zoeken">Opnieuw zoeken</string>
+    <string name="meetBuddyTitle_Text">Ontmoet jouw buddy op de aangegeven locatie</string>
+    <string name="startButton_Text">Starten</string>
+    <string name="buddyLocationMap_ContentDescription">BuddyLocationMap</string>
 
     <string-array name="spel_uitleg">
         <item>Los het doolhof op</item>

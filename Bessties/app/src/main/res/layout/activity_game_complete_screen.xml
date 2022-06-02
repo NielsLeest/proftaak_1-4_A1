@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/gamecomplete_title"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:textSize="48sp" />
 
             <TextView
@@ -39,6 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/gamecomplete_text"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>
