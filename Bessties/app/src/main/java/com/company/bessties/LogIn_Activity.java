@@ -95,4 +95,9 @@ public class LogIn_Activity extends AppCompatActivity {
         }
         return true;
     }
+
+    public void volgend(View view) {
+        Intent intent = new Intent(this, ProfileView_Activity.class);
+        startActivity(intent);
+    }
 }

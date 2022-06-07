@@ -22,6 +22,7 @@
     <string name="meetBuddyTitle_Text">Ontmoet jouw buddy op de aangegeven locatie</string>
     <string name="startButton_Text">Starten</string>
     <string name="buddyLocationMap_ContentDescription">BuddyLocationMap</string>
+    <string name="backToProfile">Terug naar profiel</string>
 
     <string-array name="spel_uitleg">
         <item>Los het doolhof op</item>

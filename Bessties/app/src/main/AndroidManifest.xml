@@ -17,17 +17,19 @@
         <activity
             android:name=".BuddyLocation_Activity"
             android:exported="false"
+            android:label="@string/backToProfile"
             android:parentActivityName=".ProfileView_Activity"/>
         <activity
             android:name=".Queue_Activity"
-            android:exported="false"
-            android:parentActivityName=".ProfileView_Activity"  />
-        <activity
-            android:name=".ProfileView_Activity"
+            android:label="@string/backToProfile"
             android:exported="false"
             android:parentActivityName=".ProfileView_Activity" />
         <activity
+            android:name=".ProfileView_Activity"
+            android:exported="false" />
+        <activity
             android:name=".ToGame_Activity"
+            android:label="@string/backToProfile"
             android:exported="false"
             android:parentActivityName=".ProfileView_Activity"/>
         <activity
@@ -35,10 +37,12 @@
             android:exported="false" />
         <activity
             android:name=".GameInfo_Activity"
+            android:label="@string/backToProfile"
             android:exported="false"
             android:parentActivityName=".ProfileView_Activity" />
         <activity
             android:name=".GameComplete_Activity"
+            android:label="@string/backToProfile"
             android:exported="false"
             android:parentActivityName=".ProfileView_Activity" />
         <activity
@@ -46,7 +50,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -25,6 +25,7 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_marginBottom="96dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Scan ticket"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
