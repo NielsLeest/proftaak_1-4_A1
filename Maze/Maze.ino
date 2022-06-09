@@ -139,8 +139,8 @@ void startGame() {
   }
 
   emptyScreens();
-  client.print("game end");
   
+  endGame();
 }
 
 // movement
@@ -244,5 +244,12 @@ void emptyScreens() {
   matrix2.clear();
   matrix1.writeDisplay();
   matrix2.writeDisplay();
-  
+
+ 
+}
+
+void endGame(){
+  client.print("game end");
+}
+
 }
