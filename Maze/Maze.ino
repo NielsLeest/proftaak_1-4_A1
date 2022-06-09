@@ -50,6 +50,8 @@ bool walls[8][16] = {
 
 void setup() {
   //wifi setup
+  pinMode(32,OUTPUT);
+  Serial.begin (115200);
   
   serverconnect();
   //maze setup
@@ -61,6 +63,7 @@ void setup() {
   displayAll();
   while(command != 65){
   waitforresponse();
+  
   }
   startGame();
 }
@@ -127,7 +130,7 @@ void waitforresponse(){
 }
 
 void startGame() {
-  remainingTime = 5000;
+  remainingTime = 20000;
   
   while (gameRunning()) {
     int xTarget = analogRead(in1)/256;
@@ -258,15 +261,19 @@ void emptyScreens() {
 
 void buzzDelay(int duration, int buzzFreq) {
   //buzzFreq: 0 = none, 1 = high, 2 = low
+  Serial.println("beep");
+  Serial.println(buzzFreq);
+  Serial.println(buzzTimer);
+ 
+  client.print("beep");
   for(int i = 0; i < duration; i++) {
-    digitalWrite(buzzAddress, buzzTimer % buzzFreq != 0);
+    digitalWrite(buzzAddress, buzzTimer % (buzzFreq+1) != 0);
     buzzTimer++;
     delay(1);
   }
 }
 
 void endGame(){
+  digitalWrite(32,false);
   client.print("game end");
-}
-
 }

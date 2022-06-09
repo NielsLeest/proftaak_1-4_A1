@@ -39,7 +39,7 @@ public class Server {
                     killserver();
                     break;
                 case "clients":
-                    fo;
+
                     break;
             }
         }
