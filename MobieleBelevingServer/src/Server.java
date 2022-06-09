@@ -58,6 +58,7 @@ public class Server {
                     System.out.println("dit is een esp!");
 
                 } else if (!newSocket.getInetAddress().toString().equals("/192.168.137.22")) {
+                    System.out.println("phone connect");
                     clients.add(new ServerClient(newSocket));
                 }
             }
