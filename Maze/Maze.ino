@@ -45,6 +45,7 @@ bool walls[8][16] = {
   };
 
 void setup() {
+  Serial.begin(115200);
   //wifi setup
   
   serverconnect();
@@ -57,6 +58,7 @@ void setup() {
   displayAll();
   while(command != 65){
   waitforresponse();
+  Serial.println("starting game");
   }
   startGame();
 }
@@ -123,7 +125,7 @@ void waitforresponse(){
 }
 void startGame() {
   remainingTime = 5000;
-  
+  Serial.println("starting game loop");
   while (gameRunning()) {
     int xTarget = analogRead(in1)/256;
     int yTarget = analogRead(in2)/512;
@@ -137,6 +139,8 @@ void startGame() {
   }
 
   emptyScreens();
+  client.print("game end");
+  
 }
 
 // movement
@@ -240,4 +244,5 @@ void emptyScreens() {
   matrix2.clear();
   matrix1.writeDisplay();
   matrix2.writeDisplay();
+  
 }
