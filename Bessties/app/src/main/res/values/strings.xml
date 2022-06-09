@@ -24,6 +24,13 @@
     <string name="buddyLocationMap_ContentDescription">BuddyLocationMap</string>
     <string name="backToProfile">Terug naar profiel</string>
 
+    <string name="userFirstName"> </string>
+    <string name="userLastName"> </string>
+    <string name="userAge"> </string>
+    <string name="login_firstName">Voornaam</string>
+    <string name="login_lastName">Achternaam</string>
+    <string name="login_age">Leeftijd</string>
+
     <string-array name="spel_uitleg">
         <item>Los het doolhof op</item>
         <item>Ga terug naar scherm</item>
