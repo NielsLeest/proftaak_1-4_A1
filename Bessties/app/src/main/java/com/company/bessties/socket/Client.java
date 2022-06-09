@@ -100,10 +100,10 @@ public class Client {
         }
     }
 
-    public boolean sendLogin(String username, String barcode){
+    public boolean sendLogin(String barcode){
         try {
             DataOutputStream ouput = new DataOutputStream(this.socket.getOutputStream());
-            ouput.writeUTF("login " + username + " " + barcode);
+            ouput.writeUTF("login " +  " " + barcode);
             ouput.flush();
             DataInputStream input = new DataInputStream(this.socket.getInputStream());
             return input.readBoolean();

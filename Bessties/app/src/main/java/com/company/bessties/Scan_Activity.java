@@ -25,13 +25,9 @@ private Button button;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scanDieshit();
+                scanCode();
             }
         });
-
-
-
-
     }
 
     public void openLogIn(View view) {
@@ -39,7 +35,7 @@ private Button button;
         startActivity(intent);
     }
 
-    public void scanDieshit() {
+    public void scanCode() {
 
         IntentIntegrator intentIntegrator = new IntentIntegrator(Scan_Activity.this);
 
@@ -68,7 +64,6 @@ private Button button;
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
             Intent next = new Intent(this,LogIn_Activity.class);
             startActivity(next);
-
 
         } else {
             Toast.makeText(getApplicationContext(), "OOPS... you did not scan", Toast.LENGTH_SHORT).show();
