@@ -45,9 +45,10 @@ private Button button;
 
         intentIntegrator.setPrompt("for flash use volume up key");
 
-        intentIntegrator.setBeepEnabled(true);
+        intentIntegrator.setBeepEnabled(false);
 
         intentIntegrator.setOrientationLocked(true);
+
 
         intentIntegrator.setCaptureActivity(Capture.class);
 
