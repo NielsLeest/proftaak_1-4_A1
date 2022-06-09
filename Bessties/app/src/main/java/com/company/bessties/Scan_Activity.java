@@ -10,15 +10,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.company.bessties.socket.Client;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class Scan_Activity extends AppCompatActivity {
 private String message = "";
 private Button button;
+private Client client;
+private Thread mama;
+private boolean barcheck = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        client = new Client();
+        new Thread(this.client::startConnection).start();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_screen);
         button = findViewById(R.id.button);
@@ -64,7 +70,20 @@ private Button button;
             message = intentResult.getContents();
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
             Intent next = new Intent(this,LogIn_Activity.class);
-            startActivity(next);
+
+            Thread thread = new Thread(() -> {
+                this.barcheck = client.sendBarcode(message);
+
+            });
+           thread.start();
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if(this.barcheck) {
+               startActivity(next);
+           }
 
         } else {
             Toast.makeText(getApplicationContext(), "OOPS... you did not scan", Toast.LENGTH_SHORT).show();

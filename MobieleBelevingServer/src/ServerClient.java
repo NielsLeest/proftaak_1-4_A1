@@ -35,65 +35,80 @@ public class ServerClient {
             try {
                 this.input = new DataInputStream(this.socket.getInputStream());
                 this.output = new DataOutputStream(this.socket.getOutputStream());
+                if (input.available() > 0) {
+                    String request = input.readUTF();
+                    System.out.println(request);
+                    String[] chunks = request.split("/");
 
-                String request = input.readUTF();
-                String[] chunks = request.split("/");
+                    switch (chunks[0]) {
 
-                switch (chunks[0]) {
-                    case "login":
-                        System.out.println(chunks[3]);
-                        Person person = new Person(chunks[1], chunks[2], chunks[3]);
-                        boolean isLoggedIn = handleLogin(person);
-                        this.output.writeBoolean(isLoggedIn);
-                        this.output.flush();
+                        case "barcode":
+                            System.out.println(chunks[1]);
+                            if(Server.barcodes.contains(chunks[1])){
+                                this.output.writeBoolean(true);
+                            }
+                            else{
+                                this.output.writeBoolean(false);
+                            }
+                            break;
+                        case "login":
+                            System.out.println(chunks[3]);
+                            Person person = new Person(chunks[1], chunks[2], chunks[3]);
+                            boolean isLoggedIn = handleLogin(person);
+                            this.output.writeBoolean(isLoggedIn);
+                            this.output.flush();
 
-                        break;
-
-                    case "join":
-                        if (this.person == null)
                             break;
 
-                        Server.queue.join(this);
+                        case "join":
+                            if (this.person == null)
+                                break;
 
-                        break;
+                            Server.queue.join(this);
 
-                    case "leave":
-                        if (this.person == null)
                             break;
 
-                        if (Server.queue.contains(this))
-                            Server.queue.leave(this);
-                        else if (this.team != null)
-                            this.leaveTeam();
+                        case "leave":
+                            if (this.person == null)
+                                break;
 
-                        break;
+                            if (Server.queue.contains(this))
+                                Server.queue.leave(this);
+                            else if (this.team != null)
+                                this.leaveTeam();
 
-                    case "decline":
-                        
-                        pendingRequest.revokeRequest(this);
-                        pendingRequest.uploadRequest();
+                            break;
 
-                        this.revokeRequest(pendingRequest);
-                        this.uploadRequest();
+                        case "decline":
 
-                        break;
+                            pendingRequest.revokeRequest(this);
+                            pendingRequest.uploadRequest();
 
-                    case "accept":
+                            this.revokeRequest(pendingRequest);
+                            this.uploadRequest();
 
-                        pendingRequest.otherAccepted = true;
-                        if (this.otherAccepted) {
-                            Team team = new Team();
-                            this.joinTeam(team);
-                            pendingRequest.joinTeam(team);
-                            Server.queue.leave(this);
-                            Server.queue.leave(pendingRequest);
+                            break;
+
+                        case "accept":
+
+                            pendingRequest.otherAccepted = true;
+                            if (this.otherAccepted) {
+                                Team team = new Team();
+                                this.joinTeam(team);
+                                pendingRequest.joinTeam(team);
+                                Server.queue.leave(this);
+                                Server.queue.leave(pendingRequest);
+                            }
+
                         }
-                }
-            } catch (IOException e) {
+                    }
+
+                }catch(IOException e){
                 e.printStackTrace();
             }
         }
     }
+
 
     public boolean handleLogin(Person person) {
         if (Server.barcodes.contains(person.getBarcode())) {

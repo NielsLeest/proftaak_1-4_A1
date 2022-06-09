@@ -5,20 +5,26 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class Client {
-    private Socket socket;
+public  class Client {
+    private  Socket socket;
+
 
     private String firstName;
     private String lastName;
     private int age;
     private String barcode;
+    private  DataOutputStream dos;
+    private  DataInputStream dis;
 
     private boolean validation = false;
 
-    public void startConnection(){
+    public  void startConnection(){
         try {
             this.socket = new Socket("192.168.137.1", 8080);
             System.out.println("socketed");
+             this.dos = new DataOutputStream(socket.getOutputStream());
+            this.dis = new DataInputStream(socket.getInputStream());
+            dos.writeUTF("kutzooi");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -55,6 +61,22 @@ public class Client {
     public String getBarcode() {
         return barcode;
     }
+
+    public  boolean sendBarcode(String barcode){
+        try {
+            DataOutputStream ouput = new DataOutputStream(this.socket.getOutputStream());
+            ouput.writeUTF("barcode" +  "/" + barcode);
+            ouput.flush();
+            DataInputStream input = new DataInputStream(this.socket.getInputStream());
+            return input.readBoolean();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+return false;
+    }
+
+
+
 
     //    @Override
 //    public void start(Stage primaryStage) throws Exception{
@@ -112,6 +134,7 @@ public class Client {
         }
         return false;
     }
+
 
     public boolean getvalidation(){
         return this.validation;
