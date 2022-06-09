@@ -8,20 +8,6 @@
     tools:context=".LogIn_Activity">
 
     <EditText
-        android:id="@+id/barcodeInput"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="56dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:hint="Barcode:"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/lastNameInput"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/lastNameInput"
-        app:layout_constraintTop_toBottomOf="@+id/lastNameInput" />
-
-    <EditText
         android:id="@+id/lastNameInput"
         android:layout_width="289dp"
         android:layout_height="60dp"

@@ -35,7 +35,6 @@ public class LogIn_Activity extends AppCompatActivity {
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);
         ageInput = (EditText) findViewById(R.id.ageInput);
-        barcodeInput = (EditText) findViewById(R.id.barcodeInput);
     }
 
     private void showToast(String text){
