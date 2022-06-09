@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.company.bessties.socket.Client;
+import com.company.bessties.socket.SingleSocket;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -18,12 +19,12 @@ public class Scan_Activity extends AppCompatActivity {
 private String message = "";
 private Button button;
 private Client client;
-private Thread mama;
+
 private boolean barcheck = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        client = new Client();
+        this.client = SingleSocket.getInstance().client;
         new Thread(this.client::startConnection).start();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_screen);
@@ -31,6 +32,8 @@ private boolean barcheck = false;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 scanCode();
             }
         });

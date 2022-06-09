@@ -3,31 +3,36 @@ package com.company.bessties.socket;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.Socket;
 
-public  class Client {
-    private  Socket socket;
+public class Client {
+    private Socket socket;
 
 
     private String firstName;
     private String lastName;
     private int age;
     private String barcode;
-    private  DataOutputStream dos;
-    private  DataInputStream dis;
+    private DataOutputStream dos;
+    private DataInputStream dis;
 
     private boolean validation = false;
 
-    public  void startConnection(){
+    public void startConnection() {
         try {
             this.socket = new Socket("192.168.137.1", 8080);
             System.out.println("socketed");
-             this.dos = new DataOutputStream(socket.getOutputStream());
+            this.dos = new DataOutputStream(socket.getOutputStream());
             this.dis = new DataInputStream(socket.getInputStream());
-            dos.writeUTF("kutzooi");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Socket getSocket() {
+        return this.socket;
     }
 
     public void setFirstName(String firstName) {
@@ -54,7 +59,7 @@ public  class Client {
         return lastName;
     }
 
-    public int getAge(){
+    public int getAge() {
         return this.age;
     }
 
@@ -62,20 +67,50 @@ public  class Client {
         return barcode;
     }
 
-    public  boolean sendBarcode(String barcode){
+    public boolean sendBarcode(String barcode) {
         try {
             DataOutputStream ouput = new DataOutputStream(this.socket.getOutputStream());
-            ouput.writeUTF("barcode" +  "/" + barcode);
+            ouput.writeUTF("barcode" + "/" + barcode);
             ouput.flush();
             DataInputStream input = new DataInputStream(this.socket.getInputStream());
             return input.readBoolean();
         } catch (IOException e) {
             e.printStackTrace();
         }
-return false;
+        return false;
+    }
+
+    public void send(String s) {
+        try {
+            dos.writeUTF(s);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
+    public String getName() {
+        try {
+
+            dos.writeUTF("get/name");
+            if(dis.readUTF()!=null)
+            return dis.readUTF();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String getAgefromServer() {
+        try {
+            DataInputStream input = new DataInputStream(this.socket.getInputStream());
+            dos.writeUTF("get/Age");
+            return input.readUTF();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
     //    @Override
@@ -105,14 +140,14 @@ return false;
 //        launch(args);
 //    }
 
-    public void handleConnection(){
-        while (true){
+    public void handleConnection() {
+        while (true) {
             try {
                 DataInputStream input = new DataInputStream(this.socket.getInputStream());
 
                 while (this.socket.isConnected()) {
                     String message = input.readUTF();
-                    if(message.equals("true")){
+                    if (message.equals("true")) {
                         this.validation = true;
                     }
                 }
@@ -122,10 +157,10 @@ return false;
         }
     }
 
-    public boolean sendLogin(String barcode){
+    public boolean sendLogin(String barcode) {
         try {
             DataOutputStream ouput = new DataOutputStream(this.socket.getOutputStream());
-            ouput.writeUTF("login " +  " " + barcode);
+            ouput.writeUTF("barcode/testtest");
             ouput.flush();
             DataInputStream input = new DataInputStream(this.socket.getInputStream());
             return input.readBoolean();
@@ -136,7 +171,7 @@ return false;
     }
 
 
-    public boolean getvalidation(){
+    public boolean getvalidation() {
         return this.validation;
     }
 

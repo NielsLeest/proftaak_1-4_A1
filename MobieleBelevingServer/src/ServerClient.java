@@ -1,4 +1,5 @@
 import java.io.*;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -6,7 +7,7 @@ import java.util.Queue;
 public class ServerClient {
 
     private Socket socket;
-    Person person;
+    private Person person;
 
     Queue<ServerClient> buddyQueue;
     ServerClient pendingRequest;
@@ -17,6 +18,7 @@ public class ServerClient {
     private ObjectInputStream inputStream;
     private String barcode = "";
     private DataInputStream input;
+    private InetAddress clientIP;
 
     public void setGame(GameServer game) {
         this.game = game;
@@ -28,6 +30,7 @@ public class ServerClient {
         this.socket = socket;
         new Thread(this::handleRequest).start();
         this.buddyQueue = new LinkedList<>();
+        this.clientIP = socket.getInetAddress();
     }
 
     public void handleRequest() {
@@ -52,12 +55,26 @@ public class ServerClient {
                             }
                             break;
                         case "login":
-                            System.out.println(chunks[3]);
-                            Person person = new Person(chunks[1], chunks[2], chunks[3]);
+                            for (String s:chunks
+                                 ) {
+                                System.out.println(s);
+
+                            }
+//                            System.out.println(chunks[3]);
+                            this.person = new Person(chunks[1], chunks[2], chunks[3]);
                             boolean isLoggedIn = handleLogin(person);
                             this.output.writeBoolean(isLoggedIn);
                             this.output.flush();
 
+                            break;
+                        case "get":
+                            ObjectOutputStream ous= new ObjectOutputStream(this.output);
+                            if(chunks[1].equals("name"))
+//                                ous.writeObject(this.person.getUserName());
+                                this.output.writeUTF(this.person.getUserName());
+                            if(chunks[1].equals("Age"))
+//                                ous.writeObject(this.person.getAge());
+                                this.output.writeUTF(this.person.getAge());
                             break;
 
                         case "join":
@@ -163,5 +180,17 @@ public class ServerClient {
     public void leaveTeam() {
         this.team.leave(this);
         this.team = null;
+    }
+
+    @Override
+    public String toString() {
+        return "ServerClient{" +
+                "person=" + person +
+                '}';
+    }
+
+
+    public InetAddress getClientIP(){
+        return this.clientIP;
     }
 }

@@ -23,4 +23,13 @@ public class Person implements Serializable {
     public String getBarcode() {
         return this.barcode;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "userName='" + userName + '\'' +
+                ", barcode='" + barcode + '\'' +
+                ", age='" + age + '\'' +
+                '}';
+    }
 }

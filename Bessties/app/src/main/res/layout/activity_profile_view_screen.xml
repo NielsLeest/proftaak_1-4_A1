@@ -7,6 +7,21 @@
     android:background="#FEF9C7"
     tools:context=".ProfileView_Activity">
 
+    <TextView
+        android:id="@+id/ageField"
+        android:layout_width="326dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="64dp"
+        android:background="#B58B8B"
+        android:text="TextView"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/button3"
         android:layout_width="300dp"
@@ -21,12 +36,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="378dp"
-        android:layout_height="150dp"
+        android:id="@+id/NameField"
+        android:layout_width="326dp"
+        android:layout_height="51dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="156dp"
         android:background="#B58B8B"
         android:text="TextView"
         android:textSize="24dp"
@@ -38,9 +53,10 @@
         android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:layout_marginBottom="112dp"
+        app:layout_constraintBottom_toTopOf="@+id/fNameField"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/avatar_icon" />
 
