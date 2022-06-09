@@ -38,6 +38,9 @@ public class Server {
                 case "kill":
                     killserver();
                     break;
+                case "clients":
+                    fo;
+                    break;
             }
         }
     }
