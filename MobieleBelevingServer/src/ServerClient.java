@@ -27,7 +27,6 @@ public class ServerClient {
     public ServerClient(Socket socket) {
         this.socket = socket;
         new Thread(this::handleRequest).start();
-
         this.buddyQueue = new LinkedList<>();
     }
 
@@ -42,8 +41,8 @@ public class ServerClient {
 
                 switch (chunks[0]) {
                     case "login":
-                        System.out.println(chunks[2]);
-                        Person person = new Person(chunks[1], chunks[2]);
+                        System.out.println(chunks[3]);
+                        Person person = new Person(chunks[1], chunks[2], chunks[3]);
                         boolean isLoggedIn = handleLogin(person);
                         this.output.writeBoolean(isLoggedIn);
                         this.output.flush();

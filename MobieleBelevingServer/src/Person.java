@@ -4,14 +4,20 @@ public class Person implements Serializable {
 
     private String userName;
     private String barcode;
+    private String age;
 
-    public Person(String userName, String barcode){
+    public Person(String userName, String age, String barcode){
         this.userName = userName;
+        this.age = age;
         this.barcode = barcode;
     }
 
     public String getUserName() {
         return this.userName;
+    }
+
+    public String getAge(){
+        return this.age;
     }
 
     public String getBarcode() {
