@@ -32,6 +32,10 @@ static int blinkDuration = 250;
 int blinkTime = 0;
 int remainingTime = 0;
 
+//buzzing logic
+int buzzAddress = 32;
+int buzzTimer = 0;
+
 
 bool walls[8][16] = {
     {true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true},
@@ -45,7 +49,6 @@ bool walls[8][16] = {
   };
 
 void setup() {
-  Serial.begin(115200);
   //wifi setup
   
   serverconnect();
@@ -58,7 +61,6 @@ void setup() {
   displayAll();
   while(command != 65){
   waitforresponse();
-  Serial.println("starting game");
   }
   startGame();
 }
@@ -121,20 +123,28 @@ void waitforresponse(){
         
       }
       
+  }
 }
-}
+
 void startGame() {
   remainingTime = 5000;
-  Serial.println("starting game loop");
+  
   while (gameRunning()) {
     int xTarget = analogRead(in1)/256;
     int yTarget = analogRead(in2)/512;
   
-    delay(deltaTime);
     blinkTime += deltaTime;
     remainingTime -= deltaTime;
     tryMove(xTarget, yTarget);
     displayAll();
+
+    int wrongAxes = 0;
+    if (xTarget != xPos)
+      wrongAxes++;
+    if (yTarget != yPos)
+      wrongAxes++;
+    buzzDelay(deltaTime, (3 - wrongAxes) % 3);
+    
     Serial.println(remainingTime);
   }
 
@@ -244,8 +254,15 @@ void emptyScreens() {
   matrix2.clear();
   matrix1.writeDisplay();
   matrix2.writeDisplay();
+}
 
- 
+void buzzDelay(int duration, int buzzFreq) {
+  //buzzFreq: 0 = none, 1 = high, 2 = low
+  for(int i = 0; i < duration; i++) {
+    digitalWrite(buzzAddress, buzzTimer % buzzFreq != 0);
+    buzzTimer++;
+    delay(1);
+  }
 }
 
 void endGame(){
