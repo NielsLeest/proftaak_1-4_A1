@@ -29,6 +29,9 @@ public class GameServer {
                             byte[] myMessage = new byte[length];
                             DIS.readFully(myMessage);
                             String clientMessage = translate(myMessage);
+                            if (clientMessage.equals("game end")){
+                                Server.killserver();
+                            }
                             System.out.println(clientMessage);
                         }
                     }
