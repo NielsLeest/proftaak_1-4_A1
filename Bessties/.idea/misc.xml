@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_buddy_location.xml" value="0.2359375" />
+        <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_game_complete_screen.xml" value="0.20878623188405798" />
+        <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_game_info_screen.xml" value="0.20878623188405798" />
+        <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_log_in_scherm.xml" value="0.20878623188405798" />
+        <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_log_in_screen.xml" value="0.20878623188405798" />
+        <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profile_view_screen.xml" value="0.25" />
+        <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_scan_screen.xml" value="0.20878623188405798" />
+        <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_to_game_screen.xml" value="0.25" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.185" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/drawable/ic_launcher_background.xml" value="0.185" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_buddy_location.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_game_complete_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_game_info_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_log_in_scherm.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_log_in_screen.xml" value="0.264" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profiel_overzicht_scherm.xml" value="0.14673913043478262" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profiel_scherm.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profile_view_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_queue_screen.xml" value="0.264" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_scan_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_spel_uitleg_scherm.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_to_game_screen.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
