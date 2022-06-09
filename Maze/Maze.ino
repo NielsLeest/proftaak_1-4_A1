@@ -53,9 +53,15 @@ void setup() {
   
   serverconnect();
   //maze setup
-  Serial.println("Testing movement...");
+  
 
- generateWalls();
+  //get a randomisation seed using the sliders
+  int seed = analogRead(in1) * 4096 + analogRead(in2);
+  Serial.print("Seed: ");
+  Serial.println(seed)
+  randomSeed(seed);
+  
+  generateWalls();
   matrix1.begin(0x70);
   matrix2.begin(0x72);
   displayAll();
