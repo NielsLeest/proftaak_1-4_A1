@@ -1,8 +1,5 @@
 package com.company.bessties;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,15 +7,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.company.bessties.socket.Client;
 
 public class LogIn_Activity extends AppCompatActivity {
     String firstname;
     String lastName;
     int age;
+    String barcode;
     EditText firstNameInput;
     EditText lastNameInput;
     EditText ageInput;
+    EditText barcodeInput;
     Button toProfileButton;
     Client client;
     boolean isValid = false;
@@ -34,6 +35,7 @@ public class LogIn_Activity extends AppCompatActivity {
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);
         ageInput = (EditText) findViewById(R.id.ageInput);
+        barcodeInput = (EditText) findViewById(R.id.barcodeInput);
     }
 
     private void showToast(String text){
@@ -44,56 +46,28 @@ public class LogIn_Activity extends AppCompatActivity {
     public void openProfile(View view) {
         firstname = firstNameInput.getText().toString();
         lastName = lastNameInput.getText().toString();
-
-        try {
+        try{
             age = Integer.valueOf(ageInput.getText().toString());
-            if (!ageIsValid(age)){
-                ageInput.setText("");
-                showToast(getString(R.string.age_invalid));
-                return;
-            }
-        }catch (Exception e){
-            return;
-        };
-
-        if (!nameIsValid(firstname)){
-            firstNameInput.setText("");
-            showToast(getString(R.string.firstname_invalid));
+        }
+        catch (Exception e){
             return;
         }
-        if (!nameIsValid(lastName)){
-            lastNameInput.setText("");
-            showToast(getString(R.string.lastname_invalid));
-            return;
-        }
+        barcode = barcodeInput.getText().toString();
 
-        
-        Thread thread = new Thread(() -> {
-            isValid = this.client.sendLogin(firstname, lastName);
+        this.client.setFirstName(firstname);
+        this.client.setLastName(lastName);
+        this.client.setAge(age);
+        this.client.setBarcode(barcode);
 
-        });
-        thread.start();
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Intent intent = new Intent(this, ProfileView_Activity.class);
-        startActivity(intent);
-    }
+        String isValid = Validation.validateLogin(this.client, this);
 
-    public boolean nameIsValid(String name){
-        if (!name.matches("^[a-zA-Záéíóúàèìòùâêîôûãõñç]{2,32}$")){
-            return false;
+        if(isValid.equals("valid")){
+            Intent intent = new Intent(this, ProfileView_Activity.class);
+            startActivity(intent);
         }
-        return true;
-    }
-
-    public boolean ageIsValid(int age){
-        if (age < 18){
-            return false;
+        else {
+            showToast("De gegeven " + isValid + " is geen geldige waarde.");
         }
-        return true;
     }
 
     public void volgend(View view) {

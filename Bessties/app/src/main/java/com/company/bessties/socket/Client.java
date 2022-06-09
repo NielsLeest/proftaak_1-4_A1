@@ -7,9 +7,13 @@ import java.net.Socket;
 
 public class Client {
     private Socket socket;
+
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String barcode;
+
     private boolean validation = false;
-
-
 
     public void startConnection(){
         try {
@@ -18,10 +22,41 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-//    @Override
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getAge(){
+        return this.age;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    //    @Override
 //    public void start(Stage primaryStage) throws Exception{
 //        this.socket = new Socket("localhost", 8080);
 //
