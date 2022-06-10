@@ -44,6 +44,14 @@ public class Server {
                         System.out.println(s);
 
                     }
+                case "clear_empty":
+                    for (ServerClient s:clients
+                         ) {
+                        if(s.getPerson() == null){
+                            clients.remove(s);
+                        }
+
+                    }
                     break;
             }
         }
