@@ -23,8 +23,8 @@ Adafruit_8x8matrix matrix2 = Adafruit_8x8matrix();
 int xPos = 6;
 int yPos = 3;
 
-int in1 = 13;
-int in2 = 12;
+int in1 = 33;
+int in2 = 32;
 
 //blinking logic
 static int deltaTime = 5;
@@ -360,7 +360,7 @@ void buzzDelay(int duration, int buzzFreq) {
 
   int freqValue[] = {1, 3, 6};
   for(int i = 0; i < duration; i++) {
-    analogWrite(buzzAddress, (buzzTimer % freqValue[buzzFreq]) * 255 / (freqValue[buzzFreq]));
+    dacWrite(buzzAddress, (buzzTimer % freqValue[buzzFreq]) * 255 / (freqValue[buzzFreq]));
     buzzTimer++;
     delay(1);
   }
