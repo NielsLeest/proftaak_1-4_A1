@@ -11,6 +11,7 @@ import android.view.View;
 
 public class Queue_Activity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

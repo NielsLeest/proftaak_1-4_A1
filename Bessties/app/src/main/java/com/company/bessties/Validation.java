@@ -18,17 +18,14 @@ public class Validation {
             activity.lastNameInput.setText("");
             return "lastname";
         }
-        else if(!validateBarcode(client)){
-            activity.barcodeInput.setText("");
-            return "barcode";
-        }
 
         return "valid";
     }
 
-    public static boolean validateBarcode(Client client){
+    public static boolean validateBarcode(Client client, String barcode){
         Thread thread = new Thread(() -> {
-            isValid = client.sendLogin(client.getFirstName(), client.getBarcode());
+            isValid = client.sendLogin(barcode);
+
         });
 
         thread.start();
@@ -42,16 +39,10 @@ public class Validation {
     }
 
     public static boolean ageIsValid(int age){
-        if (age < 18){
-            return false;
-        }
-        return true;
+        return age >= 18;
     }
 
     public static boolean nameIsValid(String name){
-        if (!name.matches("^[a-zA-Záéíóúàèìòùâêîôûãõñç]{2,32}$")){
-            return false;
-        }
-        return true;
+        return name.matches("^[a-zA-Záéíóúàèìòùâêîôûãõñç]{2,32}$");
     }
 }

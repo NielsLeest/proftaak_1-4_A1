@@ -3,25 +3,36 @@ package com.company.bessties.socket;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.Socket;
 
 public class Client {
     private Socket socket;
 
+
     private String firstName;
     private String lastName;
     private int age;
     private String barcode;
+    private DataOutputStream dos;
+    private DataInputStream dis;
 
     private boolean validation = false;
 
-    public void startConnection(){
+    public void startConnection() {
         try {
-            this.socket = new Socket("10.0.2.2", 8000);
+            this.socket = new Socket("192.168.137.1", 8080);
             System.out.println("socketed");
+            this.dos = new DataOutputStream(socket.getOutputStream());
+            this.dis = new DataInputStream(socket.getInputStream());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Socket getSocket() {
+        return this.socket;
     }
 
     public void setFirstName(String firstName) {
@@ -48,13 +59,59 @@ public class Client {
         return lastName;
     }
 
-    public int getAge(){
+    public int getAge() {
         return this.age;
     }
 
     public String getBarcode() {
         return barcode;
     }
+
+    public boolean sendBarcode(String barcode) {
+        try {
+            DataOutputStream ouput = new DataOutputStream(this.socket.getOutputStream());
+            ouput.writeUTF("barcode" + "/" + barcode);
+            ouput.flush();
+            DataInputStream input = new DataInputStream(this.socket.getInputStream());
+            return input.readBoolean();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public void send(String s) {
+        try {
+            dos.writeUTF(s);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public String getName() {
+        try {
+
+            dos.writeUTF("get/name");
+            if(dis.readUTF()!=null)
+            return dis.readUTF();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String getAgefromServer() {
+        try {
+            DataInputStream input = new DataInputStream(this.socket.getInputStream());
+            dos.writeUTF("get/Age");
+            return input.readUTF();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     //    @Override
 //    public void start(Stage primaryStage) throws Exception{
@@ -83,14 +140,14 @@ public class Client {
 //        launch(args);
 //    }
 
-    public void handleConnection(){
-        while (true){
+    public void handleConnection() {
+        while (true) {
             try {
                 DataInputStream input = new DataInputStream(this.socket.getInputStream());
 
                 while (this.socket.isConnected()) {
                     String message = input.readUTF();
-                    if(message.equals("true")){
+                    if (message.equals("true")) {
                         this.validation = true;
                     }
                 }
@@ -100,10 +157,10 @@ public class Client {
         }
     }
 
-    public boolean sendLogin(String username, String barcode){
+    public boolean sendLogin(String barcode) {
         try {
             DataOutputStream ouput = new DataOutputStream(this.socket.getOutputStream());
-            ouput.writeUTF("login " + username + " " + barcode);
+            ouput.writeUTF("barcode/testtest");
             ouput.flush();
             DataInputStream input = new DataInputStream(this.socket.getInputStream());
             return input.readBoolean();
@@ -113,7 +170,8 @@ public class Client {
         return false;
     }
 
-    public boolean getvalidation(){
+
+    public boolean getvalidation() {
         return this.validation;
     }
 
