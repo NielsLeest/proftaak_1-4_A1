@@ -29,7 +29,10 @@ public class BuddyLocation_Activity extends AppCompatActivity {
         if (id == R.id.menuButton) {
             Intent intent = new Intent(this, ProfileView_Activity.class);
             startActivity(intent);
-        }
+        } else if (id == android.R.id.home){
+                finish();
+                return true;
+            }
         return super.onOptionsItemSelected(item);
     }
 
