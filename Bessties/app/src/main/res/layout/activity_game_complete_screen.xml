@@ -14,7 +14,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="256dp"
-        android:background="@color/white"
+        android:background="@drawable/add_outline"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +39,8 @@
                 android:id="@+id/gamecomplete_Text_Textfield"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="@string/gamecomplete_text"
                 android:textColor="@color/black"
                 android:textSize="24sp" />

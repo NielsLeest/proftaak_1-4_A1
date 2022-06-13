@@ -26,6 +26,8 @@
             android:parentActivityName=".ProfileView_Activity" />
         <activity
             android:name=".ProfileView_Activity"
+            android:label="Sluit profiel"
+            android:parentActivityName=".ProfileView_Activity"
             android:exported="false" />
         <activity
             android:name=".ToGame_Activity"
