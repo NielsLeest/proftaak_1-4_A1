@@ -72,7 +72,13 @@ public class LogIn_Activity extends AppCompatActivity {
         String isValid = Validation.validateLogin(this.client, this);
 
         if(isValid.equals("valid")){
+            Bitmap bmp = BitmapFactory.decodeResource(getResources(), images[currentImage]);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+
             Intent intent = new Intent(this, ProfileView_Activity.class);
+            intent.putExtra("picture", byteArray);
             startActivity(intent);
         }
         else {
