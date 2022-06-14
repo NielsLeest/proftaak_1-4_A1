@@ -22,11 +22,23 @@ public class Server {
     private static void commander() {
         Scanner reader = new Scanner(System.in);
         while (true) {
-            String command = reader.nextLine();
+            String l = reader.nextLine();
+            String[] chunk = l.split(" ");
+            switch (chunk[0]) {
 
-            switch (command) {
+                case"send":
+                    clients.get(Integer.parseInt(chunk[1])).send(chunk[2]);
+                    System.out.println("send"+ chunk[2]+ "to"+ clients.get(Integer.parseInt(chunk[1])));
+                break;
                 case "":
                     System.out.println("empty string");
+                    break;
+
+                case"getque":
+                    for (ServerClient s: queue.getQueue()){
+                        System.out.println(s);
+                    }
+
                     break;
                 case "start":
                     if(mazeGame != null) {
@@ -71,7 +83,7 @@ public class Server {
 
                 } else if (!newSocket.getInetAddress().toString().equals("/192.168.137.22")) {
                     System.out.println("phone connect");
-                    clients.add(new ServerClient(newSocket));
+                    clients.add(new ServerClient(newSocket,queue));
                 }
             }
 

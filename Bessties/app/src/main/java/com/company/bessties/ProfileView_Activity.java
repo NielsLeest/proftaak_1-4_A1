@@ -74,7 +74,8 @@ public class ProfileView_Activity extends AppCompatActivity {
     }
 
     public void openQueue(View view) {
-        Intent intent = new Intent(this, Queue_Activity.class);
+
+        Intent intent = new Intent(this, waitingscreen_activity.class);
 
         startActivity(intent);
     }

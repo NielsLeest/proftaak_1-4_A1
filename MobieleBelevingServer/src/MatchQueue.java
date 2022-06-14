@@ -27,4 +27,8 @@ public class MatchQueue {
     public boolean contains(ServerClient person) {
         return queue.contains(person);
     }
+
+    public List<ServerClient> getQueue() {
+        return queue;
+    }
 }

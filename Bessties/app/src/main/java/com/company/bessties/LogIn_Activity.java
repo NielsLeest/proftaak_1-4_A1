@@ -42,8 +42,8 @@ public class LogIn_Activity extends AppCompatActivity {
 
         currentImageView = (ImageView) findViewById(R.id.profilePicture);
 
-        this.client = new Client();
-        new Thread(this.client::startConnection).start();
+
+
 
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);

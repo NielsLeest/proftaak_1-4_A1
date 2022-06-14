@@ -9,13 +9,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class Queue_Activity extends AppCompatActivity {
+import com.company.bessties.socket.Client;
+import com.company.bessties.socket.SingleSocket;
 
+public class Queue_Activity extends AppCompatActivity {
+    private Client client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_queue_screen);
+        this.client = SingleSocket.getInstance().client;
 
         ActionBar actionBar = getSupportActionBar();
 

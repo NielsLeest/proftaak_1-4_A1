@@ -16,6 +16,7 @@ public class Client {
     private String barcode;
     private DataOutputStream dos;
     private DataInputStream dis;
+    public Boolean que = false;
 
     private boolean validation = false;
 
@@ -26,6 +27,7 @@ public class Client {
             this.dos = new DataOutputStream(socket.getOutputStream());
             this.dis = new DataInputStream(socket.getInputStream());
 
+//          new Thread(()->handleConnection()).start();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -69,11 +71,10 @@ public class Client {
 
     public boolean sendBarcode(String barcode) {
         try {
-            DataOutputStream ouput = new DataOutputStream(this.socket.getOutputStream());
-            ouput.writeUTF("barcode" + "/" + barcode);
-            ouput.flush();
-            DataInputStream input = new DataInputStream(this.socket.getInputStream());
-            return input.readBoolean();
+            dos.writeUTF("barcode" + "/" + barcode);
+            dos.flush();
+
+            return dis.readBoolean();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,11 +82,16 @@ public class Client {
     }
 
     public void send(String s) {
-        try {
-            dos.writeUTF(s);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        new Thread(()->{
+            try {
+                dos.writeUTF(s);
+                dos.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
     }
 
 
@@ -93,6 +99,7 @@ public class Client {
         try {
 
             dos.writeUTF("get/name");
+            dos.flush();
             if(dis.readUTF()!=null)
             return dis.readUTF();
         } catch (IOException e) {
@@ -141,20 +148,26 @@ public class Client {
 //    }
 
     public void handleConnection() {
-        while (true) {
-            try {
-                DataInputStream input = new DataInputStream(this.socket.getInputStream());
 
-                while (this.socket.isConnected()) {
-                    String message = input.readUTF();
-                    if (message.equals("true")) {
-                        this.validation = true;
+            while (true) {
+                try {
+                    String s = dis.readUTF();
+
+                    switch (s){
+                        case"found":
+                            this.que = true;
+                            break;
+
                     }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-        }
+
+
+
+
+
     }
 
     public boolean sendLogin(String barcode) {
@@ -169,6 +182,10 @@ public class Client {
         }
         return false;
     }
+
+
+
+
 
 
     public boolean getvalidation() {

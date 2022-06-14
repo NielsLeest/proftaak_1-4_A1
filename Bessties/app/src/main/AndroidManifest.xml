@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.company.bessties">
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-    
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,50 +15,57 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bessties">
         <activity
+            android:name=".waitingscreen_activity"
+            android:exported="false" />
+        <activity
             android:name=".BuddyLocation_Activity"
             android:exported="false"
             android:label="@string/backToProfile"
-            android:parentActivityName=".ProfileView_Activity"/>
+            android:parentActivityName=".ProfileView_Activity" />
         <activity
             android:name=".Queue_Activity"
-            android:label="@string/backToProfile"
             android:exported="false"
+            android:label="@string/backToProfile"
             android:parentActivityName=".ProfileView_Activity" />
         <activity
             android:name=".ProfileView_Activity"
+            android:exported="false"
             android:label="Sluit profiel"
-            android:parentActivityName=".ProfileView_Activity"
-            android:exported="false" />
+            android:parentActivityName=".ProfileView_Activity" />
         <activity
             android:name=".ToGame_Activity"
-            android:label="@string/backToProfile"
             android:exported="false"
-            android:parentActivityName=".ProfileView_Activity"/>
+            android:label="@string/backToProfile"
+            android:parentActivityName=".ProfileView_Activity" />
         <activity
             android:name=".LogIn_Activity"
             android:exported="false" />
         <activity
             android:name=".GameInfo_Activity"
-            android:label="@string/backToProfile"
             android:exported="false"
+            android:label="@string/backToProfile"
             android:parentActivityName=".ProfileView_Activity" />
         <activity
             android:name=".GameComplete_Activity"
-            android:label="@string/backToProfile"
             android:exported="false"
+            android:label="@string/backToProfile"
             android:parentActivityName=".ProfileView_Activity" />
+
+
         <activity
             android:name=".Scan_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Capture"
+        <activity
+            android:name=".Capture"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
-            android:theme="@style/zxing_CaptureTheme"/>
+            android:theme="@style/zxing_CaptureTheme" />
     </application>
 
 </manifest>

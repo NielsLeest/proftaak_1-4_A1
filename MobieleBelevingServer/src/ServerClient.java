@@ -15,10 +15,11 @@ public class ServerClient {
     private boolean otherAccepted = false;
 
     private DataOutputStream output;
-    private ObjectInputStream inputStream;
+
     private String barcode = "";
     private DataInputStream input;
     private InetAddress clientIP;
+
 
     public void setGame(GameServer game) {
         this.game = game;
@@ -26,37 +27,47 @@ public class ServerClient {
 
     private GameServer game;
 
-    public ServerClient(Socket socket) {
+    public ServerClient(Socket socket,MatchQueue que) {
         this.socket = socket;
+        try {
+            this.input = new DataInputStream(this.socket.getInputStream());
+            this.output = new DataOutputStream(this.socket.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         new Thread(this::handleRequest).start();
         this.buddyQueue = new LinkedList<>();
         this.clientIP = socket.getInetAddress();
+
     }
 
     public void handleRequest() {
         while (this.socket.isConnected()) {
             try {
-                this.input = new DataInputStream(this.socket.getInputStream());
-                this.output = new DataOutputStream(this.socket.getOutputStream());
-                if (input.available() > 0) {
+
+                while(this.input.available() > 0) {
                     String request = input.readUTF();
                     System.out.println(request);
                     String[] chunks = request.split("/");
 
                     switch (chunks[0]) {
 
+
+
                         case "barcode":
                             System.out.println(chunks[1]);
-                            if(Server.barcodes.contains(chunks[1])){
+                            if (Server.barcodes.contains(chunks[1])) {
                                 this.output.writeBoolean(true);
-                            }
-                            else{
+
+                            } else {
                                 this.output.writeBoolean(false);
                             }
+                            output.flush();
                             break;
                         case "login":
-                            for (String s:chunks
-                                 ) {
+                            for (String s : chunks
+                            ) {
                                 System.out.println(s);
 
                             }
@@ -68,11 +79,11 @@ public class ServerClient {
 
                             break;
                         case "get":
-                            ObjectOutputStream ous= new ObjectOutputStream(this.output);
-                            if(chunks[1].equals("name"))
+                            ObjectOutputStream ous = new ObjectOutputStream(this.output);
+                            if (chunks[1].equals("name"))
 //                                ous.writeObject(this.person.getUserName());
                                 this.output.writeUTF(this.person.getUserName());
-                            if(chunks[1].equals("Age"))
+                            if (chunks[1].equals("Age"))
 //                                ous.writeObject(this.person.getAge());
                                 this.output.writeUTF(this.person.getAge());
                             break;
@@ -117,8 +128,9 @@ public class ServerClient {
                                 Server.queue.leave(pendingRequest);
                             }
 
-                        }
                     }
+                }
+
 
                 }catch(IOException e){
                 e.printStackTrace();
@@ -192,5 +204,15 @@ public class ServerClient {
 
     public InetAddress getClientIP(){
         return this.clientIP;
+    }
+
+
+    public void send(String s){
+        try {
+            output.writeUTF(s);
+            output.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
