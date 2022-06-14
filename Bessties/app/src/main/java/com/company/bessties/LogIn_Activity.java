@@ -1,8 +1,6 @@
 package com.company.bessties;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.bessties.socket.Client;
-
-import java.io.ByteArrayOutputStream;
 
 public class LogIn_Activity extends AppCompatActivity {
     String firstname;
@@ -72,13 +68,8 @@ public class LogIn_Activity extends AppCompatActivity {
         String isValid = Validation.validateLogin(this.client, this);
 
         if(isValid.equals("valid")){
-            Bitmap bmp = BitmapFactory.decodeResource(getResources(), images[currentImage]);
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-            byte[] byteArray = stream.toByteArray();
-
+            pictureHandler.saveImageID(images[currentImage]);
             Intent intent = new Intent(this, ProfileView_Activity.class);
-            intent.putExtra("picture", byteArray);
             startActivity(intent);
         }
         else {
@@ -87,13 +78,10 @@ public class LogIn_Activity extends AppCompatActivity {
     }
 
     public void volgend(View view) {
-        Bitmap bmp = BitmapFactory.decodeResource(getResources(), images[currentImage]);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
 
+        pictureHandler.saveImageID(images[currentImage]); //Saves ID of selected image
         Intent intent = new Intent(this, ProfileView_Activity.class);
-        intent.putExtra("picture", byteArray);
+        intent.putExtra("firstTime", true);
         startActivity(intent);
     }
 
