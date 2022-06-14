@@ -71,7 +71,8 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageInput"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@drawable/avatar1" />
 
     <ImageButton
         android:id="@+id/left_picture_button"
@@ -105,7 +106,7 @@
         android:id="@+id/toProfileButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="12dp"
         android:background="#213495"
         android:backgroundTint="#213495"
         android:onClick="openProfile"
@@ -113,8 +114,8 @@
         android:textSize="20sp"
         app:iconTint="#213495"
         app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/profilePicture"
+        app:layout_constraintStart_toStartOf="@+id/profilePicture" />
 
     <Button
         android:id="@+id/button2"
