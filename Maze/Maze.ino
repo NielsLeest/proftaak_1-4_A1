@@ -25,6 +25,8 @@ int yPos = 3;
 
 int in1 = 33;
 int in2 = 32;
+bool flipIn1 = false;
+bool flipIn2 = false;
 
 //blinking logic
 static int deltaTime = 5;
@@ -145,19 +147,20 @@ void startGame() {
   while (gameRunning()) {
     int xValue = analogRead(in1);
     int yValue = analogRead(in2);
+    if (flipIn1)
+      xValue = 4095 - xValue;
+    if (flipIn2)
+      yValue = 4095 - yValue;
     int xTarget = xPos;
     int yTarget = yPos;
-
     if (xValue - 128 > xPos * 256)
       xTarget = (xValue - 128) / 256;
     else if (xValue + 128 < xPos * 256)
       xTarget = (xValue + 128) / 256;
-
     if (yValue - 256 > yPos * 512)
       yTarget = (yValue - 256) / 512;
     else if (yValue + 256 < yPos * 512)
       yTarget = (yValue + 256) / 512;
-  
     tryMove(xTarget, yTarget);
     
     blinkTime += deltaTime;
@@ -280,17 +283,26 @@ bool generateWalls() {
     toFinish--;
   }
 
-  Serial.println("attempt failed");
-  
-  if (toFinish != 0)
+  if (toFinish != 0) {
+    Serial.println("attempt failed");
     return false;
+  }
 
   bool steady = true;
   while (steady) {
     xPos = random(14) + 1;
     yPos = random(6) + 1;
-    steady = walls[xPos][yPos];
+    steady = walls[yPos][xPos];
   }
+
+  //flip controls
+  if (random(2) == 0) {
+    int pinDiff = in1 - in2;
+    in1 -= pinDiff;
+    in2 += pinDiff;
+  }
+  flipIn1 = random(2) == 0;
+  flipIn2 = random(2) == 0;
   
   printMaze();
   
@@ -373,8 +385,12 @@ void buzzDelay(int duration, int buzzFreq) {
   //buzzFreq: 0 = none, 1 = low, 2 = high
 
   int freqValue[] = {1, 20, 2};
+  int intensity[] = {0, 95, 255};
   for(int i = 0; i < duration; i++) {
-    dacWrite(buzzAddress, (buzzTimer % freqValue[buzzFreq]) * 255 / (freqValue[buzzFreq]));
+    if (buzzFreq != 0)
+      dacWrite(buzzAddress, intensity[buzzFreq]); // alternating current supplies the pitch
+    else 
+      dacWrite(buzzAddress, 0);
     buzzTimer++;
     delay(1);
   }
