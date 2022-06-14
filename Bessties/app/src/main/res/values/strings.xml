@@ -3,7 +3,11 @@
     <string name="login_top">Maak een account</string>
     <string name="to_queue">Ga naar je profiel</string>
     <string name="to_location">Ga naar de locatie van het spel</string>
-    <string name="hint">Hint!</string>
+    <string name="hint_button">Hint!</string>
+    <string name="hint_text">Paden met wanden van heg, \n
+                        Vele opties maar slechts een weg, \n
+                        De in- en uitgang aan de rand, \n
+                        Het kan enkel worden opgelost hand in hand.</string>
     <string name="found">Gevonden!</string>
     <string name="go_back">Ga terug</string>
     <string name="gameInfo_title">Game informatie</string>
@@ -18,9 +22,9 @@
     <string name="firstname_invalid">De gegeven voornaam is niet geldig</string>
     <string name="lastname_invalid">De gegeven achternaam is niet geldig</string>
     <string name="age_invalid">U bent te jong</string>
-    <string name="meetBuddyTitle_text">Ontmoet jouw buddy op de aangegeven locatie</string>
+    <string name="meetBuddyTitle_text">Ontmoet jouw besstie bij de ingang. Hier vindt u het volgende bord:</string>
     <string name="startButton_text">Starten</string>
-    <string name="buddyLocationMap_ContentDescription">BuddyLocationMap</string>
+    <string name="buddyLocationMap_ContentDescription">BesstieLocationMap</string>
     <string name="backToProfile">Vorige pagina</string>
 
     <string name="userFirstName"> </string>

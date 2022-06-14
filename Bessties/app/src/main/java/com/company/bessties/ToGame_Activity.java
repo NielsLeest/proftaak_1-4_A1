@@ -43,6 +43,6 @@ public class ToGame_Activity extends AppCompatActivity {
     }
 
     public void showHint(View view) {
-        Toast.makeText(this, "hint", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getText(R.string.hint_text), Toast.LENGTH_LONG).show();
     }
 }

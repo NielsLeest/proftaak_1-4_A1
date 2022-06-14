@@ -86,21 +86,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/profilePicture"
         app:layout_constraintVertical_bias="0.507"
-        app:srcCompat="@drawable/ic_baseline_arrow_left_24" />
+        app:srcCompat="@drawable/ic_baseline_arrow_left_24"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/right_picture_button"
         android:layout_width="0dp"
         android:layout_height="129dp"
         android:background="@android:color/transparent"
-        android:rotation="180"
         android:onClick="rightArrowButton"
+        android:rotation="180"
         app:layout_constraintBottom_toBottomOf="@+id/profilePicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/profilePicture"
         app:layout_constraintTop_toTopOf="@+id/profilePicture"
         app:layout_constraintVertical_bias="0.507"
-        app:srcCompat="@drawable/ic_baseline_arrow_left_24" />
+        app:srcCompat="@drawable/ic_baseline_arrow_left_24"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/toProfileButton"
