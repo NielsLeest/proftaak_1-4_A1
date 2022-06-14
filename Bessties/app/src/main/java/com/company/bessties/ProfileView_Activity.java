@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import java.util.Objects;
 
 public class ProfileView_Activity extends AppCompatActivity {
+    private boolean allowBack = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,8 @@ public class ProfileView_Activity extends AppCompatActivity {
 
         try {
             if (getIntent().getExtras().getBoolean("firstTime")) {
-                Objects.requireNonNull(getSupportActionBar()).hide(); 
+                Objects.requireNonNull(getSupportActionBar()).hide();
+                this.allowBack = false;
             }
         } catch (Exception e){
             e.printStackTrace();
@@ -27,6 +29,13 @@ public class ProfileView_Activity extends AppCompatActivity {
 
         ImageView image = (ImageView) findViewById(R.id.profileViewPicture);
         image.setImageResource(pictureHandler.getImageID());
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (allowBack) {
+            super.onBackPressed();
+        }
     }
 
     @Override
