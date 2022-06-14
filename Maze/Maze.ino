@@ -80,6 +80,7 @@ void setup() {
 void loop() {
   return;
 }
+/*
 void serverconnect(){
   if (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS)) {
     Serial.println("STA Failed to configure");
@@ -137,17 +138,30 @@ void waitforresponse(){
       
   }
 }
-
+*/
 void startGame() {
   remainingTime = 30000;
   
   while (gameRunning()) {
-    int xTarget = analogRead(in1)/256;
-    int yTarget = analogRead(in2)/512;
+    int xValue = analogRead(in1);
+    int yValue = analogRead(in2);
+    int xTarget = xPos;
+    int yTarget = yPos;
+
+    if (xValue - 128 > xPos * 256)
+      xTarget = (xValue - 128) / 256;
+    else if (xValue + 128 < xPos * 256)
+      xTarget = (xValue + 128) / 256;
+
+    if (yValue - 256 > yPos * 512)
+      yTarget = (yValue - 256) / 512;
+    else if (yValue + 256 < yPos * 512)
+      yTarget = (yValue + 256) / 512;
   
+    tryMove(xTarget, yTarget);
+    
     blinkTime += deltaTime;
     remainingTime -= deltaTime;
-    tryMove(xTarget, yTarget);
     displayAll();
 
     int wrongAxes = 0;
@@ -358,7 +372,7 @@ void emptyScreens() {
 void buzzDelay(int duration, int buzzFreq) {
   //buzzFreq: 0 = none, 1 = low, 2 = high
 
-  int freqValue[] = {1, 3, 6};
+  int freqValue[] = {1, 20, 2};
   for(int i = 0; i < duration; i++) {
     dacWrite(buzzAddress, (buzzTimer % freqValue[buzzFreq]) * 255 / (freqValue[buzzFreq]));
     buzzTimer++;
