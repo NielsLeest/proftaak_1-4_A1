@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FEF9C7"
     tools:context=".ToGame_Activity">
 
     <FrameLayout
@@ -12,6 +11,7 @@
         android:layout_width="341dp"
         android:layout_height="416dp"
         android:background="@drawable/add_outline"
+        android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,16 +19,17 @@
         app:layout_constraintVertical_bias="0.174">
 
         <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="57dp"
-            android:layout_marginTop="72dp"
+            android:id="@+id/ToGame_Title"
+            android:layout_width="match_parent"
+            android:layout_height="94dp"
+            android:layout_margin="3dp"
+            android:layout_marginTop="0dp"
             android:text="@string/to_location"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="38sp"
-            android:translationX="40dp"
-            android:translationY="-40dp" />
+            android:textSize="34sp"
+            android:translationX="0dp"
+            android:translationY="0dp" />
 
         <ImageView
             android:id="@+id/locationImage"
@@ -37,18 +38,19 @@
             android:adjustViewBounds="false"
             android:translationX="15sp"
             android:translationY="100sp"
-            app:srcCompat="@drawable/appicon" />
+            app:srcCompat="@drawable/blurlocation" />
     </FrameLayout>
 
     <Button
         android:id="@+id/hintButton"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/hint"
-        android:textSize="22sp"
+        android:layout_marginTop="52dp"
         android:onClick="showHint"
+        android:text="@string/hint_button"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
 
@@ -56,27 +58,16 @@
         android:id="@+id/foundButton"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
         android:onClick="openGameScreen"
         android:text="@string/found"
         android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hintButton" />
-
-    <Button
-        android:id="@+id/gobackButton"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:onClick="openBuddyLocation"
-        android:text="@string/go_back"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/foundButton"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/foundButton"
-        app:layout_constraintTop_toBottomOf="@+id/foundButton"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintTop_toBottomOf="@+id/hintButton"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

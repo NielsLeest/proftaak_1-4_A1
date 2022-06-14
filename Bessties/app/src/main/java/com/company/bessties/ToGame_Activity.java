@@ -37,18 +37,12 @@ public class ToGame_Activity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void openBuddyLocation(View view) {
-        Intent intent = new Intent(this, BuddyLocation_Activity.class);
-        startActivity(intent);
-    }
-
     public void openGameScreen(View view) {
         Intent intent = new Intent(this, GameInfo_Activity.class);
         startActivity(intent);
     }
 
-
     public void showHint(View view) {
-        Toast.makeText(this, "hint", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getText(R.string.hint_text), Toast.LENGTH_LONG).show();
     }
 }

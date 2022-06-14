@@ -14,4 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
+    <style name="Theme.Background" parent="Theme.Bessties">
+        <item name="android:windowBackground">@drawable/appbackground</item>
+    </style>
 </resources>

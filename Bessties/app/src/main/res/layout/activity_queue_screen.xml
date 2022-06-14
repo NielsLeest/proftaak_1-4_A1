@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FEF9C7 "
     tools:context=".Queue_Activity">
 
     <Button
@@ -12,7 +11,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="32dp"
-        android:text="@string/verder_gaan"
+        android:text="@string/continueButton_text"
         android:textSize="20sp"
         android:onClick="openBuddyLocation"
         app:layout_constraintBottom_toTopOf="@+id/Retry"
@@ -25,7 +24,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="56dp"
-        android:text="@string/opnieuw_zoeken"
+        android:text="@string/searchAgain_text"
         android:textSize="20sp"
         android:onClick="retryQueue"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +51,7 @@
             app:srcCompat="@drawable/avatar_icon" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/ToGame_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="First name"

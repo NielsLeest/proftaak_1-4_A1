@@ -26,7 +26,8 @@ public class LogIn_Activity extends AppCompatActivity {
     boolean isValid = false;
 
     private int currentImage = 0;
-    int[] images = {R.drawable.avatar_icon, R.drawable.appicon, R.drawable.qr_scanner};
+    int[] images = {R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4, R.drawable.avatar5,
+            R.drawable.avatar6, R.drawable.avatar7, R.drawable.avatar8};
     ImageView currentImageView;
 
     @Override

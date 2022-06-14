@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FEF9C7">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:id="@+id/gameComplete"
@@ -30,7 +29,7 @@
                 android:id="@+id/gamecomplete_Title_Textfield"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/gamecomplete_title"
+                android:text="@string/gameComplete_title"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="48sp" />
@@ -41,7 +40,7 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="@string/gamecomplete_text"
+                android:text="@string/gameComplete_text"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -51,11 +50,12 @@
         android:id="@+id/toShopButton"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/toShop_Text"
+        android:layout_marginBottom="52dp"
         android:onClick="openGameScreen"
+        android:text="@string/toShop_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -63,10 +63,11 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/newGameButton_Text"
         android:onClick="openGameScreen"
+        android:text="@string/newGameButton_text"
         app:layout_constraintBottom_toTopOf="@+id/toShopButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/gameComplete"
+        app:layout_constraintStart_toStartOf="@+id/gameComplete"
+        app:layout_constraintTop_toBottomOf="@+id/gameComplete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
