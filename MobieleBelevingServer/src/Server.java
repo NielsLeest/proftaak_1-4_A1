@@ -15,6 +15,7 @@ public class Server {
     public static void main(String[] args) {
         new Thread(Server::server).start();
         new Thread(Server::commander).start();
+        new Thread(Server::match).start();
     }
 
 
@@ -27,7 +28,7 @@ public class Server {
             switch (chunk[0]) {
 
                 case"send":
-                    clients.get(Integer.parseInt(chunk[1])).send(chunk[2]);
+                    clients.get(Integer.parseInt(chunk[1])).send(chunk[2]+"\n");
                     System.out.println("send"+ chunk[2]+ "to"+ clients.get(Integer.parseInt(chunk[1])));
                 break;
                 case "":
@@ -95,5 +96,27 @@ public class Server {
 
     public static void killserver() {
         mazeGame = null;
+    }
+
+
+
+    public static void match(){
+
+        while (true) {
+            if(queue.getQueue().size()>=2){
+                ServerClient s1 = queue.getQueue().get(0);
+                ServerClient s2 = queue.getQueue().get(1);
+                s1.pendingRequest = s2;
+                s2.pendingRequest = s1;
+                s1.send("found");
+                s2.send("found");
+
+
+
+
+
+                break;
+            }
+        }
     }
 }

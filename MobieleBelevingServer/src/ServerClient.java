@@ -19,6 +19,7 @@ public class ServerClient {
     private String barcode = "";
     private DataInputStream input;
     private InetAddress clientIP;
+    private PrintWriter writer;
 
 
     public void setGame(GameServer game) {
@@ -31,7 +32,8 @@ public class ServerClient {
         this.socket = socket;
         try {
             this.input = new DataInputStream(this.socket.getInputStream());
-            this.output = new DataOutputStream(this.socket.getOutputStream());
+//            this.output = new DataOutputStream(this.socket.getOutputStream());
+            this.writer =  new PrintWriter(socket.getOutputStream(), true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -53,17 +55,20 @@ public class ServerClient {
 
                     switch (chunks[0]) {
 
-
+                        case "pending":
+                            writer.println(pendingRequest.getPerson().getUserName());
+                            writer.println(pendingRequest.getPerson().getAge());
+                            break;
 
                         case "barcode":
                             System.out.println(chunks[1]);
                             if (Server.barcodes.contains(chunks[1])) {
-                                this.output.writeBoolean(true);
+                                this.writer.println("true");
 
                             } else {
-                                this.output.writeBoolean(false);
+                                this.writer.println("false");
                             }
-                            output.flush();
+                            this.writer.flush();
                             break;
                         case "login":
                             for (String s : chunks
@@ -71,18 +76,18 @@ public class ServerClient {
                                 System.out.println(s);
 
                             }
-//                            System.out.println(chunks[3]);
+                            System.out.println(chunks[3]);
                             this.person = new Person(chunks[1], chunks[2], chunks[3]);
-                            boolean isLoggedIn = handleLogin(person);
-                            this.output.writeBoolean(isLoggedIn);
-                            this.output.flush();
+//                            boolean isLoggedIn = handleLogin(person);
+//                            this.writer.write(isLoggedIn+"");
+//                            this.writer.flush();
 
                             break;
                         case "get":
                             ObjectOutputStream ous = new ObjectOutputStream(this.output);
                             if (chunks[1].equals("name"))
 //                                ous.writeObject(this.person.getUserName());
-                                this.output.writeUTF(this.person.getUserName());
+                               this.writer.write(this.person.getUserName());
                             if (chunks[1].equals("Age"))
 //                                ous.writeObject(this.person.getAge());
                                 this.output.writeUTF(this.person.getAge());
@@ -208,11 +213,9 @@ public class ServerClient {
 
 
     public void send(String s){
-        try {
-            output.writeUTF(s);
-            output.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println("send "+ s);
+            writer.println(s);
+            writer.flush();
+
     }
 }

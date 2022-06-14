@@ -1,8 +1,10 @@
 package com.company.bessties.socket;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 
@@ -15,7 +17,8 @@ public class Client {
     private int age;
     private String barcode;
     private DataOutputStream dos;
-    private DataInputStream dis;
+//    private DataInputStream dis;
+    private BufferedReader input;
     public Boolean que = false;
 
     private boolean validation = false;
@@ -25,7 +28,12 @@ public class Client {
             this.socket = new Socket("192.168.137.1", 8080);
             System.out.println("socketed");
             this.dos = new DataOutputStream(socket.getOutputStream());
-            this.dis = new DataInputStream(socket.getInputStream());
+//            this.dis = new DataInputStream(socket.getInputStream());
+            this.input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+//            new Thread(()->{
+//                handleConnection();
+//            }).start();
+
 
 //          new Thread(()->handleConnection()).start();
         } catch (IOException e) {
@@ -73,8 +81,10 @@ public class Client {
         try {
             dos.writeUTF("barcode" + "/" + barcode);
             dos.flush();
+if(input.readLine().equals("true")){
+    return true;
+}
 
-            return dis.readBoolean();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -95,18 +105,18 @@ public class Client {
     }
 
 
-    public String getName() {
-        try {
-
-            dos.writeUTF("get/name");
-            dos.flush();
-            if(dis.readUTF()!=null)
-            return dis.readUTF();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+//    public String getName() {
+//        try {
+//
+//            dos.writeUTF("get/name");
+//            dos.flush();
+//            if(dis.readUTF()!=null)
+//            return dis.readUTF();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
     public String getAgefromServer() {
         try {
@@ -148,26 +158,31 @@ public class Client {
 //    }
 
     public void handleConnection() {
-
+String s = "";
             while (true) {
                 try {
-                    String s = dis.readUTF();
-
+                    s = input.readLine();
+                    System.out.printf(s);
                     switch (s){
                         case"found":
                             this.que = true;
                             break;
 
                     }
+                    if(s.equals("found")) break;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
-
-
-
-
+    }
+    public String read(){
+        try {
+            return input.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public boolean sendLogin(String barcode) {

@@ -26,6 +26,7 @@ private boolean barcheck = false;
     protected void onCreate(Bundle savedInstanceState) {
         this.client = SingleSocket.getInstance().client;
         new Thread(this.client::startConnection).start();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_screen);
         button = findViewById(R.id.button);

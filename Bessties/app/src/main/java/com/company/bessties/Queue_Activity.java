@@ -8,12 +8,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.company.bessties.socket.Client;
 import com.company.bessties.socket.SingleSocket;
 
 public class Queue_Activity extends AppCompatActivity {
     private Client client;
+    private String opponentName;
+    private String age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +24,25 @@ public class Queue_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_queue_screen);
         this.client = SingleSocket.getInstance().client;
 
-        ActionBar actionBar = getSupportActionBar();
+        client.send("pending");
 
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        Thread t1 = new Thread(()->{opponentName = client.read();
+        age = client.read();});
+        t1.start();
+        try {
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        TextView name =  (TextView)findViewById(R.id.textView5);
+        name.setText(opponentName);
+        TextView age = (TextView)findViewById(R.id.textView7);
+        age.setText(this.age);
+
+
+//        ActionBar actionBar = getSupportActionBar();
+//
+//        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

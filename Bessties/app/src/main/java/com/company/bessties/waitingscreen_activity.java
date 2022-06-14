@@ -20,32 +20,39 @@ public class waitingscreen_activity extends AppCompatActivity {
         this.client = SingleSocket.getInstance().client;
 
         client.send("join");
-        new Thread(()->client.handleConnection()).start();
+
 
 
         Intent next = new Intent(this, Queue_Activity.class);
 
-        new Thread(()->{
-            waitingforplayer();
-        }).start();
+      Thread t1 =  new Thread(()->{
+            client.handleConnection();
+//            waitingforplayer();
+        });
+      t1.start();
+        try {
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        if(que){
+        if(client.que){
             startActivity(next);
         }
 
 
     }
 
-    private void waitingforplayer() {
-        while (!client.que){
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        que = true;
-
-
-    }
+//    private void waitingforplayer() {
+//        while (!client.que){
+//            try {
+//
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        que = true;
+//
+//
+//    }
 }
