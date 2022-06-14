@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaParser;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,8 @@ private boolean barcheck = false;
     protected void onCreate(Bundle savedInstanceState) {
         this.client = SingleSocket.getInstance().client;
         new Thread(this.client::startConnection).start();
+        Intent intent = new Intent(Scan_Activity.this, BackgroundSoundService.class);
+        startService(intent);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_screen);
@@ -33,6 +37,8 @@ private boolean barcheck = false;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
 
 
                 scanCode();
