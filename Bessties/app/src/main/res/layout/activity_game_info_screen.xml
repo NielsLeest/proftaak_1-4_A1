@@ -5,18 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/startGameButton"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:text="@string/startGameButton_text"
-        android:textSize="20sp"
-        android:onClick="openGameComplete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameinfo" />
-
     <ScrollView
         android:id="@+id/gameinfo"
         android:layout_width="0dp"
@@ -41,7 +29,7 @@
                 android:id="@+id/gameinfo_Title_Textfield"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/gameInfo_title"
+                android:text="@string/game_info_title"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="48sp" />
@@ -52,9 +40,21 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="@string/gameInfo_text"
+                android:text="@string/game_info_text"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/startGameButton"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="openGameComplete"
+        android:text="@string/game_info_start_button"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

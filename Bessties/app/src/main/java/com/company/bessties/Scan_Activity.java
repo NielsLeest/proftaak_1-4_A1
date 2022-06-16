@@ -35,7 +35,7 @@ private Button button;
         /*
          * Creates new button functionality to scan barcode
          */
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.button_scanTicket);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

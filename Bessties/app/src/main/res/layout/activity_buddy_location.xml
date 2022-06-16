@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:text="@string/meetBuddyTitle_text"
+        android:text="@string/buddy_meet_buddy"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/black"
@@ -40,7 +40,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:contentDescription="@string/buddyLocationMap_ContentDescription"
+        android:contentDescription="@string/buddy_map_description"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.0"
@@ -53,12 +53,12 @@
         android:id="@+id/startButton"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="32dp"
         android:onClick="openToGameScreen"
-        android:text="@string/startButton_text"
-        android:textSize="20sp"
+        android:text="@string/buddy_start"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
