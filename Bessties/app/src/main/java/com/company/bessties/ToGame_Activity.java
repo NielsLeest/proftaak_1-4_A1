@@ -9,11 +9,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.company.bessties.socket.Client;
+import com.company.bessties.socket.SingleSocket;
+
 public class ToGame_Activity extends AppCompatActivity {
+    private Client client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.client = SingleSocket.getInstance().client;
         setContentView(R.layout.activity_to_game_screen);
     }
 
@@ -44,6 +49,7 @@ public class ToGame_Activity extends AppCompatActivity {
 
     public void openGameScreen(View view) {
         Intent intent = new Intent(this, GameInfo_Activity.class);
+        client.send("startgame");
         startActivity(intent);
     }
 

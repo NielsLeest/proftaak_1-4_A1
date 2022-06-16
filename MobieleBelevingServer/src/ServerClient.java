@@ -20,6 +20,7 @@ public class ServerClient {
     private DataInputStream input;
     private InetAddress clientIP;
     private PrintWriter writer;
+    public boolean startgame = false;
 
 
     public void setGame(GameServer game) {
@@ -54,6 +55,15 @@ public class ServerClient {
                     String[] chunks = request.split("/");
 
                     switch (chunks[0]) {
+
+                        case"startgame":
+                            this.startgame = true;
+                            System.out.println(this.getPerson()+" wants to start");
+                            if(team.game()){
+                                System.out.println("let the game begin!");
+                                Server.mazeGame.startGame();
+                            }
+                            break;
 
                         case "pending":
                             if(pendingRequest != null) {
@@ -135,14 +145,19 @@ public class ServerClient {
 
                             pendingRequest.otherAccepted = true;
                             if (this.otherAccepted) {
-                                Team team = new Team();
-                                this.joinTeam(team);
-                                pendingRequest.joinTeam(team);
-                                Server.queue.leave(this);
-                                Server.queue.leave(pendingRequest);
+                                if(pendingRequest.team == null) {
+                                    team = new Team();
+                                }else {
+                                    team = pendingRequest.team;
+                                }
+                                team.join(this);
+//                                pendingRequest.joinTeam(team);
+
                             }
+                            break;
 
                     }
+
                 }
 
 
