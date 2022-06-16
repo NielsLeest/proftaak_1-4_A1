@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ProfileView_Activity">
 
+    <TextView
+        android:id="@+id/ageField"
+        android:layout_width="326dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="64dp"
+        android:background="#B58B8B"
+        android:text="TextView"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/button_SearchBesttie"
         android:layout_width="300dp"
@@ -20,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textview_ProfileInfo"
+        android:id="@+id/NameField"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginStart="32dp"

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.bessties.socket.Client;
+import com.company.bessties.socket.SingleSocket;
 
 /**
  * Public class LogIn_Activity
@@ -47,11 +48,12 @@ public class LogIn_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_screen);
+        this.client = SingleSocket.getInstance().client;
 
         currentImageView = (ImageView) findViewById(R.id.profilePicture);
 
-        this.client = new Client();
-        new Thread(this.client::startConnection).start();
+
+
 
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);
@@ -83,7 +85,7 @@ public class LogIn_Activity extends AppCompatActivity {
         catch (Exception e){
             return;
         }
-        barcode = barcodeInput.getText().toString();
+//        barcode = barcodeInput.getText().toString();
 
         this.client.setFirstName(firstname);
         this.client.setLastName(lastName);
@@ -93,6 +95,9 @@ public class LogIn_Activity extends AppCompatActivity {
         String isValid = Validation.validateLogin(this.client, this);
 
         if(isValid.equals("valid")){
+            new Thread(()->{
+                this.client.send("login/"+firstname+"/"+lastName+"/"+age);
+            }).start();
             pictureHandler.saveImageID(images[currentImage]);
             Intent intent = new Intent(this, ProfileView_Activity.class);
             startActivity(intent);
