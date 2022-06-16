@@ -34,8 +34,8 @@ bool flipIn2 = false;
 //time that passes per refresh in millis
 static int deltaTime = 5;
 //time remaining before game is lost
-//initialised in startGame();
 int remainingTime = 0;
+int maxTime = 0;
 
 //span of a full blink on+off + counter tracking it
 static int blinkDuration = 250;
@@ -58,6 +58,8 @@ bool walls[8][16] = {
     {true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true}
   };
 
+int winCount = 0;
+
 //initialises connections and seed
 void setup() {
   
@@ -79,11 +81,6 @@ void setup() {
 
 //runs the full game loop including start and end
 void loop() {
-  //try to generate maze until success
-  bool steady = true;
-  while (steady)
-    steady = !generateWalls();
-
   
   emptyScreens();
   //wait for a server signal to start the game
@@ -93,7 +90,24 @@ void loop() {
   command = 0;
   //start game
   displayAll();
-  startGame();
+  maxTime = 100000;
+
+  winCount = -1;
+  
+  bool steady2 = true;
+  while (steady2) {
+    winCount++;
+    //try to generate maze until success
+    bool steady = true;
+    while (steady)
+      steady = !generateWalls();
+    steady2 = startGame();
+
+    maxTime = (maxTime * 9) / 10;
+  }
+    
+
+  endGame();
 }
 
 void serverconnect(){
@@ -155,9 +169,9 @@ void waitforresponse(){
 }
 
 //plays the game loop
-void startGame() {
-  //about 60 seconds
-  remainingTime = 60000;
+//returns whether won
+bool startGame() {
+  remainingTime = maxTime;
   
   while (gameRunning()) {
     int xValue = analogRead(in1);
@@ -193,8 +207,8 @@ void startGame() {
   }
 
   emptyScreens();
-  
-  endGame();
+
+  return remainingTime > 0;
 }
 
 //attempts a movement towards the configured position and halts if this fails at any point
@@ -419,6 +433,7 @@ void buzzDelay(int duration, int buzzFreq) {
 
 //terminate the game
 void endGame(){
-  digitalWrite(32,false);
+  dacWrite(buzzAddress, 0);
   client.print("game end");
+  client.print(winCount);
 }
