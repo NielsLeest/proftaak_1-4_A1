@@ -67,7 +67,7 @@
         android:layout_height="200dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:src="@drawable/avatar_icon"
+        android:src="@drawable/avatar1"
         app:layout_constraintBottom_toTopOf="@+id/toProfileButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
