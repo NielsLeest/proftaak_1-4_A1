@@ -5,15 +5,25 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
+//TODO Finish comments when class is ready and finished
+
+/**
+ * Public class Client
+ * Makes connection to the server
+ */
+
 public class Client {
     private Socket socket;
-
     private String firstName;
     private String lastName;
     private int age;
     private String barcode;
-
     private boolean validation = false;
+
+    /**
+     * Method startConnection
+     * Makes the connection to the server
+     */
 
     public void startConnection(){
         try {
@@ -24,13 +34,31 @@ public class Client {
         }
     }
 
+    /**
+     * Method setFirstName
+     * Sets the firstname to the given parameter
+     * @param firstName is the users first name
+     */
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     * Method setLastName
+     * Sets the lastname to the given parameter
+     * @param lastName is the users last name
+     */
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    /**
+     * Method setAge
+     * Sets the age to the given parameter
+     * @param age is the users age
+     */
 
     public void setAge(int age) {
         this.age = age;
