@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.company.bessties.socket.Client;
+import com.company.bessties.socket.SingleSocket;
 
 import java.util.Objects;
 
@@ -16,6 +21,11 @@ import java.util.Objects;
  */
 
 public class ProfileView_Activity extends AppCompatActivity {
+    private Client client;
+    private TextView name ;
+   private TextView age ;
+    private String Name;
+    private String Age;
     private boolean allowBack = true;
 
     /**
@@ -44,6 +54,28 @@ public class ProfileView_Activity extends AppCompatActivity {
 
         ImageView image = (ImageView) findViewById(R.id.profileViewPicture);
         image.setImageResource(pictureHandler.getImageID());
+
+        name  = (TextView)findViewById(R.id.NameField);
+        age = (TextView) findViewById(R.id.ageField);
+
+
+
+
+
+        this.client = SingleSocket.getInstance().client;
+
+        Thread t1 = new Thread(()->{
+           Name = client.getFirstName()+ " "+ client.getLastName();
+           Age = ""+client.getAge();
+        });
+        t1.start();
+        try {
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        name.setText(Name);
+        age.setText(Age);
     }
 
     /**
@@ -83,7 +115,9 @@ public class ProfileView_Activity extends AppCompatActivity {
      */
 
     public void openQueue(View view) {
-        Intent intent = new Intent(this, Queue_Activity.class);
+
+        Intent intent = new Intent(this, waitingscreen_activity.class);
+
         startActivity(intent);
     }
 }
