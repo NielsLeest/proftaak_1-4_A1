@@ -12,19 +12,19 @@
         android:layout_height="50dp"
         android:layout_marginBottom="32dp"
         android:onClick="openBuddyLocation"
-        android:text="@string/continueButton_text"
+        android:text="@string/queue_skip_button"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/Retry"
+        android:id="@+id/button_Retry"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
         android:onClick="retryQueue"
-        android:text="@string/searchAgain_text"
+        android:text="@string/queue_search_again"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/ToBuddyLocation"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/queue_Title">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/image_found_buddy"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:translationX="25dp"
@@ -49,28 +49,28 @@
             app:srcCompat="@drawable/avatar_icon" />
 
         <TextView
-            android:id="@+id/ToGame_Title"
+            android:id="@+id/foundBuddy_firstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="First name"
+            android:text="@string/queue_first_name"
             android:textSize="20sp"
             android:translationX="200dp"
             android:translationY="50dp" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/foundBuddy_lastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Last name"
+            android:text="@string/queue_last_name"
             android:textSize="20sp"
             android:translationX="200dp"
             android:translationY="100dp" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/foundBuddy_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Age"
+            android:text="@string/queue_age"
             android:textSize="20sp"
             android:translationX="200dp"
             android:translationY="150dp" />
@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="Gevonden bestie"
+        android:text="@string/queue_found_buddy"
         android:textColor="@android:color/black"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"

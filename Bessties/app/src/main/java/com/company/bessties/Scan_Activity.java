@@ -21,7 +21,7 @@ private Button button;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_screen);
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.button_scanTicket);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

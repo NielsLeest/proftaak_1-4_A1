@@ -7,12 +7,12 @@
     tools:context=".ProfileView_Activity">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_SearchBesttie"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="32dp"
         android:onClick="openQueue"
-        android:text="Zoek Besstie"
+        android:text="@string/profile_search_buddy"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textview_ProfileInfo"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginStart="32dp"
@@ -28,7 +28,7 @@
         android:background="#B58B8B"
         android:text=""
         android:textSize="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/button_SearchBesttie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileViewPicture" />
@@ -48,7 +48,7 @@
         android:id="@+id/profile_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profiel overzicht"
+        android:text="@string/profile_title"
         android:textColor="@android:color/black"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/profileViewPicture"

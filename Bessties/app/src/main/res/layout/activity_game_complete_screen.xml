@@ -29,7 +29,7 @@
                 android:id="@+id/gamecomplete_Title_Textfield"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/gameComplete_title"
+                android:text="@string/game_complete_title"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="48sp" />
@@ -40,9 +40,10 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="@string/gameComplete_text"
+                android:text="@string/game_complete_text"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
+
         </LinearLayout>
     </ScrollView>
 

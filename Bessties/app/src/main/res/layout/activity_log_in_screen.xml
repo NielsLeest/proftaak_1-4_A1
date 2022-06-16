@@ -12,7 +12,7 @@
         android:layout_width="413dp"
         android:layout_height="51dp"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/login_top"
+        android:text="@string/login_title"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="38sp"
@@ -28,7 +28,7 @@
         android:layout_margin="3dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:hint="@string/login_firstName"
+        android:hint="@string/login_first_name"
         android:inputType="textPersonName"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/loginBox"
@@ -41,7 +41,7 @@
         android:layout_height="60dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:hint="@string/login_lastName"
+        android:hint="@string/login_last_name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/ageInput"
         app:layout_constraintEnd_toEndOf="@+id/loginBox"
@@ -82,10 +82,8 @@
         android:onClick="leftArrowButton"
         app:layout_constraintBottom_toBottomOf="@+id/profilePicture"
         app:layout_constraintEnd_toStartOf="@+id/profilePicture"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/profilePicture"
-        app:layout_constraintVertical_bias="0.507"
         app:srcCompat="@drawable/ic_baseline_arrow_left_24"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -100,7 +98,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/profilePicture"
         app:layout_constraintTop_toTopOf="@+id/profilePicture"
-        app:layout_constraintVertical_bias="0.507"
         app:srcCompat="@drawable/ic_baseline_arrow_left_24"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -112,7 +109,7 @@
         android:background="#213495"
         android:backgroundTint="#213495"
         android:onClick="openProfile"
-        android:text="Ga naar profiel"
+        android:text="@string/login_to_profile"
         android:textSize="24sp"
         app:iconTint="#213495"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -120,12 +117,12 @@
         app:layout_constraintStart_toStartOf="@+id/profilePicture" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/tempButton_skipLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:onClick="volgend"
-        android:text="Button"
+        android:text="@string/login_skip_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
