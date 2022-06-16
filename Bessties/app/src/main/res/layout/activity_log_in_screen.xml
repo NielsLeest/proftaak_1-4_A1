@@ -68,11 +68,10 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:src="@drawable/avatar_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/toProfileButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBox"
-        app:layout_constraintVertical_bias="0.25"
         tools:srcCompat="@drawable/avatar1" />
 
     <ImageButton
@@ -109,6 +108,7 @@
         android:id="@+id/toProfileButton"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="32dp"
         android:background="#213495"
         android:backgroundTint="#213495"
         android:onClick="openProfile"
@@ -117,8 +117,7 @@
         app:iconTint="#213495"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/profilePicture"
-        app:layout_constraintStart_toStartOf="@+id/profilePicture"
-        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+        app:layout_constraintStart_toStartOf="@+id/profilePicture" />
 
     <Button
         android:id="@+id/button2"

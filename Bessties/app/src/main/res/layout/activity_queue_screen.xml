@@ -14,22 +14,20 @@
         android:onClick="openBuddyLocation"
         android:text="@string/continueButton_text"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/Retry"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/Retry"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="16dp"
         android:onClick="retryQueue"
         android:text="@string/searchAgain_text"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ToBuddyLocation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
