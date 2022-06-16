@@ -47,25 +47,11 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/toShopButton"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="52dp"
-        android:onClick="openGameScreen"
-        android:text="@string/toShop_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/newGameButton"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
         android:onClick="openGameScreen"
         android:text="@string/newGameButton_text"
-        app:layout_constraintBottom_toTopOf="@+id/toShopButton"
         app:layout_constraintEnd_toEndOf="@+id/gameComplete"
         app:layout_constraintStart_toStartOf="@+id/gameComplete"
         app:layout_constraintTop_toBottomOf="@+id/gameComplete" />
