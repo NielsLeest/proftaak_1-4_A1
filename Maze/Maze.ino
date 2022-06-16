@@ -235,8 +235,6 @@ bool gameRunning() {
 }
 
 bool generateWalls() {
-  bool finished[6][14] = {};
-  int toFinish = 6 * 14;
 
   for(int i = 0; i < 8; i++) {
     for(int j = 0; j < 16; j++) {
@@ -251,8 +249,6 @@ bool generateWalls() {
 
     walls[y * 7][x + 1] = false;
     walls[y * 5 + 1][x + 1] = false;
-    finished[y * 5][x] = true;
-    toFinish--;
   } else {
     //random y left or right
     int x = random(2);
@@ -260,17 +256,12 @@ bool generateWalls() {
 
     walls[y + 1][x * 15] = false;
     walls[y + 1][x * 13 + 1] = false;
-    finished[y][x * 13] = true;
-    toFinish--;
   }
 
-  while(toFinish != 0 && isExpandable()) {
+  while(hasNeighbourCount(1)) {
     int x = random(14) + 1;
     int y = random(6) + 1;
-
-    if (finished[y - 1][x - 1])
-      continue;
-
+    
     int neighbours = getNeighbourCount(x, y);
 
     if (neighbours == 0)
@@ -279,11 +270,10 @@ bool generateWalls() {
       walls[y][x] = false;
     }
     //if neighbourcount exceeds never accessible
-    finished[y - 1][x - 1] = true;
-    toFinish--;
   }
 
-  if (toFinish != 0) {
+  if (hasNeighbourCount(0)) {
+    printMaze();
     Serial.println("attempt failed");
     return false;
   }
@@ -326,10 +316,10 @@ int getNeighbourCount(int x, int y) {
     return neighbours;
 }
 
-bool isExpandable() {
+bool hasNeighbourCount(int count) {
   for(int i = 0; i < 6; i++)
     for(int j = 0; j < 14; j++)
-      if(walls[i + 1][j + 1] && getNeighbourCount(j + 1, i + 1) == 1) {
+      if(walls[i + 1][j + 1] && getNeighbourCount(j + 1, i + 1) == count) {
         return true;
       }
 
