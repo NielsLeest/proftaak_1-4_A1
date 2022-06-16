@@ -34,8 +34,8 @@ public class Queue_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_queue_screen);
-        name =  (TextView)findViewById(R.id.textView5);
-        ageBox = (TextView)findViewById(R.id.textView7);
+        name =  (TextView)findViewById(R.id.foundBuddy_firstName);
+        ageBox = (TextView)findViewById(R.id.foundBuddy_age);
         this.client = SingleSocket.getInstance().client;
 
         client.send("pending");
