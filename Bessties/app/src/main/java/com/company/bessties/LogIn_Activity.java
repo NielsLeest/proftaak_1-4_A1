@@ -12,6 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.bessties.socket.Client;
 
+/**
+ * Public class LogIn_Activity
+ * Creates functionalities for the LogIn screen
+ */
+
 public class LogIn_Activity extends AppCompatActivity {
     String firstname;
     String lastName;
@@ -21,14 +26,22 @@ public class LogIn_Activity extends AppCompatActivity {
     EditText lastNameInput;
     EditText ageInput;
     EditText barcodeInput;
-    Button toProfileButton;
     Client client;
-    boolean isValid = false;
+
+    /*
+    Adds images to int array for profile pictures
+     */
 
     private int currentImage = 0;
     int[] images = {R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4, R.drawable.avatar5,
             R.drawable.avatar6, R.drawable.avatar7, R.drawable.avatar8};
     ImageView currentImageView;
+
+    /**
+     * Method onCreate
+     * Creates LogIn screen lay-out
+     * @param savedInstanceState
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +58,21 @@ public class LogIn_Activity extends AppCompatActivity {
         ageInput = (EditText) findViewById(R.id.ageInput);
     }
 
+    /**
+     * Method showToast
+     * Shows error message when input is invalid
+     * @param text
+     */
+
     private void showToast(String text){
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Method openProfile
+     * Gets input and calls isValid
+     * @param view
+     */
 
     public void openProfile(View view) {
         firstname = firstNameInput.getText().toString();
@@ -78,13 +102,25 @@ public class LogIn_Activity extends AppCompatActivity {
         }
     }
 
-    public void volgend(View view) {
+    /**
+     * Method toProfileView
+     * Starts the next screen activity when button is pressed and saves chosen profile picture
+     * @param view
+     */
+
+    public void toProfileView(View view) {
 
         pictureHandler.saveImageID(images[currentImage]); //Saves ID of selected image
         Intent intent = new Intent(this, ProfileView_Activity.class);
         intent.putExtra("firstTime", true);
         startActivity(intent);
     }
+
+    /**
+     * Method leftArrowButton
+     * Cycles through profile images to the left
+     * @param view
+     */
 
     public void leftArrowButton(View view) {
         currentImage--;
@@ -93,6 +129,12 @@ public class LogIn_Activity extends AppCompatActivity {
         }
         currentImageView.setImageResource(images[currentImage]);
     }
+
+    /**
+     * Method leftArrowButton
+     * Cycles through profile images to the right
+     * @param view
+     */
 
     public void rightArrowButton(View view) {
         currentImage++;
