@@ -142,7 +142,7 @@ void waitforresponse(){
 }
 */
 void startGame() {
-  remainingTime = 30000;
+  remainingTime = 60000;
   
   while (gameRunning()) {
     int xValue = analogRead(in1);
@@ -268,6 +268,8 @@ bool generateWalls() {
       continue;
     if (neighbours == 1) {
       walls[y][x] = false;
+      xPos = x;
+      yPos = y;
     }
     //if neighbourcount exceeds never accessible
   }
@@ -276,13 +278,6 @@ bool generateWalls() {
     printMaze();
     Serial.println("attempt failed");
     return false;
-  }
-
-  bool steady = true;
-  while (steady) {
-    xPos = random(14) + 1;
-    yPos = random(6) + 1;
-    steady = walls[yPos][xPos];
   }
 
   //flip controls
