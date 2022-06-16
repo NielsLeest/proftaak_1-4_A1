@@ -55,10 +55,9 @@ void setup() {
   Serial.begin(9600);
   
   //wifi setup
-//  serverconnect();
+  serverconnect();
 
   //maze setup
-  //pinMode(buzzAddress, OUTPUT);
 
   //get a randomisation seed using the sliders
   int seed = analogRead(in1) * 4096 + analogRead(in2);
@@ -73,16 +72,16 @@ void setup() {
   matrix1.begin(0x70);
   matrix2.begin(0x72);
   displayAll();
-//  while(command != 65){
-//  waitforresponse();
-//  }
+  while(command != 65){
+  waitforresponse();
+  }
   startGame();
 }
 
 void loop() {
   return;
 }
-/*
+
 void serverconnect(){
   if (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS)) {
     Serial.println("STA Failed to configure");
@@ -140,7 +139,7 @@ void waitforresponse(){
       
   }
 }
-*/
+
 void startGame() {
   remainingTime = 60000;
   
