@@ -52,8 +52,11 @@
         android:layout_height="50dp"
         android:onClick="openGameScreen"
         android:text="@string/newGameButton_text"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/gameComplete"
         app:layout_constraintStart_toStartOf="@+id/gameComplete"
-        app:layout_constraintTop_toBottomOf="@+id/gameComplete" />
+        app:layout_constraintTop_toBottomOf="@+id/gameComplete"
+        app:layout_constraintVertical_bias="0.75" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

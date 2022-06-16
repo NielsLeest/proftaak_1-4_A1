@@ -55,7 +55,7 @@
         android:layout_height="50dp"
         android:onClick="openToGameScreen"
         android:text="@string/startButton_text"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
