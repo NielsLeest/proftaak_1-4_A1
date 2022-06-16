@@ -28,8 +28,8 @@ private boolean barcheck = false;
     protected void onCreate(Bundle savedInstanceState) {
         this.client = SingleSocket.getInstance().client;
         new Thread(this.client::startConnection).start();
-        Intent intent = new Intent(Scan_Activity.this, BackgroundSoundService.class);
-        startService(intent);
+//        Intent intent = new Intent(Scan_Activity.this, BackgroundSoundService.class);
+//        startService(intent);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_screen);

@@ -17,28 +17,22 @@ public class Queue_Activity extends AppCompatActivity {
     private Client client;
     private String opponentName;
     private String age;
+    TextView name;
+    TextView ageBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_queue_screen);
+        name =  (TextView)findViewById(R.id.textView5);
+        ageBox = (TextView)findViewById(R.id.textView7);
         this.client = SingleSocket.getInstance().client;
 
         client.send("pending");
 
-        Thread t1 = new Thread(()->{opponentName = client.read();
-        age = client.read();});
+        Thread t1 = new Thread(()-> { setCard();
+        });
         t1.start();
-        try {
-            t1.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        TextView name =  (TextView)findViewById(R.id.textView5);
-        name.setText(opponentName);
-        TextView age = (TextView)findViewById(R.id.textView7);
-        age.setText(this.age);
-
 
 //        ActionBar actionBar = getSupportActionBar();
 //
@@ -66,12 +60,24 @@ public class Queue_Activity extends AppCompatActivity {
     }
 
     public void openBuddyLocation(View view) {
+        client.send("accept");
         Intent intent = new Intent(this, BuddyLocation_Activity.class);
         startActivity(intent);
     }
 
     public void retryQueue(View view) {
+        client.send("decline");
         Intent intent = new Intent(this, Queue_Activity.class);
         startActivity(intent);
+    }
+
+    public void setCard(){
+
+        opponentName= client.read();
+        age = client.read();
+
+
+        name.setText(this.opponentName);
+        ageBox.setText(this.age);
     }
 }

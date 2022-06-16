@@ -27,6 +27,12 @@ public class Server {
             String[] chunk = l.split(" ");
             switch (chunk[0]) {
 
+
+                case"qsize":
+
+                    System.out.println(queue.getQueue().size());
+                    break;
+
                 case"send":
                     clients.get(Integer.parseInt(chunk[1])).send(chunk[2]+"\n");
                     System.out.println("send"+ chunk[2]+ "to"+ clients.get(Integer.parseInt(chunk[1])));
@@ -103,19 +109,24 @@ public class Server {
     public static void match(){
 
         while (true) {
-            if(queue.getQueue().size()>=2){
+            if(queue.getQueue().size()>1){
                 ServerClient s1 = queue.getQueue().get(0);
                 ServerClient s2 = queue.getQueue().get(1);
                 s1.pendingRequest = s2;
                 s2.pendingRequest = s1;
                 s1.send("found");
                 s2.send("found");
-
+                System.out.println("werkt?");
 
 
 
 
                 break;
+            }
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }

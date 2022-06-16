@@ -10,49 +10,32 @@ import com.company.bessties.socket.SingleSocket;
 
 public class waitingscreen_activity extends AppCompatActivity {
     private Client client;
-    private Boolean que = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waitingscreen);
-
         this.client = SingleSocket.getInstance().client;
-
-        client.send("join");
-
+        new Thread(()->waitingforplayer()).start();
 
 
-        Intent next = new Intent(this, Queue_Activity.class);
-
-      Thread t1 =  new Thread(()->{
-            client.handleConnection();
-//            waitingforplayer();
-        });
-      t1.start();
-        try {
-            t1.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        if(client.que){
-            startActivity(next);
-        }
 
 
     }
 
-//    private void waitingforplayer() {
-//        while (!client.que){
-//            try {
-//
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        que = true;
-//
-//
-//    }
+    private void waitingforplayer() {
+
+
+        Intent next = new Intent(this, Queue_Activity.class);
+        client.send("join");
+        client.handleConnection();
+
+            if (client.que) {
+                startActivity(next);
+            }
+        }
+
+
+
 }

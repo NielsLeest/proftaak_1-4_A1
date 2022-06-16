@@ -56,8 +56,17 @@ public class ServerClient {
                     switch (chunks[0]) {
 
                         case "pending":
-                            writer.println(pendingRequest.getPerson().getUserName());
-                            writer.println(pendingRequest.getPerson().getAge());
+                            if(pendingRequest != null) {
+                                writer.println(pendingRequest.getPerson().getUserName());
+                                writer.flush();
+                                writer.println(pendingRequest.getPerson().getAge());
+                                writer.flush();
+                            }else{
+                                writer.println("Midas");
+                                writer.println("55");
+                                writer.flush();
+                            }
+
                             break;
 
                         case "barcode":
@@ -77,7 +86,7 @@ public class ServerClient {
 
                             }
                             System.out.println(chunks[3]);
-                            this.person = new Person(chunks[1], chunks[2], chunks[3]);
+                            this.person = new Person(chunks[1] +" "+ chunks[2], chunks[3], "0");
 //                            boolean isLoggedIn = handleLogin(person);
 //                            this.writer.write(isLoggedIn+"");
 //                            this.writer.flush();
@@ -94,11 +103,11 @@ public class ServerClient {
                             break;
 
                         case "join":
-                            if (this.person == null)
+                            if (this.person == null) {
                                 break;
-
-                            Server.queue.join(this);
-
+                            }else {
+                                Server.queue.join(this);
+                            }
                             break;
 
                         case "leave":

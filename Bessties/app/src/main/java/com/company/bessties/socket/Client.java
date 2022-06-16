@@ -177,6 +177,7 @@ String s = "";
 
     }
     public String read(){
+
         try {
             return input.readLine();
         } catch (IOException e) {
