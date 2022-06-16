@@ -30,7 +30,7 @@ public class GameServer {
                             DIS.readFully(myMessage);
                             String clientMessage = translate(myMessage);
                             if (clientMessage.equals("game end")){
-                                Server.killserver();
+//                                Server.killserver();
                             }
                             System.out.println(clientMessage);
                         }

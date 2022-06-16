@@ -90,6 +90,7 @@ void loop() {
   while(command != 65){
     waitforresponse();
   }
+  command = 0;
   //start game
   displayAll();
   startGame();
@@ -411,7 +412,7 @@ void buzzDelay(int duration, int buzzFreq) {
       dacWrite(buzzAddress, intensity[buzzFreq]); // alternating current supplies the pitch
     else 
       dacWrite(buzzAddress, 0);
-    buzzTimer++;
+    
     delay(1);
   }
 }
