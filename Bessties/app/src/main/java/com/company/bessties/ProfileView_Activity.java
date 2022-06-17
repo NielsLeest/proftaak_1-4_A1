@@ -117,6 +117,8 @@ public class ProfileView_Activity extends AppCompatActivity {
     public void openQueue(View view) {
 
         Intent intent = new Intent(this, waitingscreen_activity.class);
+        //intent.putExtra("loadingInfo", "@string/buddySearchText");
+        intent.putExtra("loadingInfo", getResources().getString(R.string.buddySearchText));
 
         startActivity(intent);
     }

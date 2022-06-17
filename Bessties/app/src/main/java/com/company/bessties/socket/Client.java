@@ -35,7 +35,8 @@ public class Client {
 
     public void startConnection(){
         try {
-            this.socket = new Socket("192.168.137.1", 8080);
+            // 192.168.137.1
+            this.socket = new Socket("10.0.2.2", 8080);
             System.out.println("socketed");
             this.dos = new DataOutputStream(socket.getOutputStream());
 //            this.dis = new DataInputStream(socket.getInputStream());

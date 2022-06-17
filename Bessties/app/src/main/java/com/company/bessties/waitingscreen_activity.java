@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.company.bessties.socket.Client;
 import com.company.bessties.socket.SingleSocket;
@@ -19,8 +21,10 @@ public class waitingscreen_activity extends AppCompatActivity {
         this.client = SingleSocket.getInstance().client;
         new Thread(()->waitingforplayer()).start();
 
-
-
+        String loadingInfo = getIntent().getStringExtra("loadingInfo");
+        Log.i("msg", loadingInfo);
+        TextView loadInfoText = findViewById(R.id.textView);
+        loadInfoText.setText(loadingInfo);
 
     }
 
