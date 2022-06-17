@@ -26,7 +26,7 @@
     <string name="queue_first_name">First name</string>
     <string name="queue_last_name">Last name</string>
     <string name="queue_age">Age</string>
-    <string name="queue_found_buddy">Gevonden bestie</string>
+    <string name="queue_found_buddy">Besstie gevonden</string>
     <string name="queue_search_again">Opnieuw zoeken</string>
 
     <!--Buddy screen-->

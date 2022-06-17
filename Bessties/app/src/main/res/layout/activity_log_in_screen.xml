@@ -106,12 +106,9 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="32dp"
-        android:background="#213495"
-        android:backgroundTint="#213495"
         android:onClick="openProfile"
         android:text="@string/login_to_profile"
         android:textSize="24sp"
-        app:iconTint="#213495"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/profilePicture"
         app:layout_constraintStart_toStartOf="@+id/profilePicture" />

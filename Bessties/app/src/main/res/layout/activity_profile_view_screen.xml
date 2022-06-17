@@ -7,19 +7,16 @@
     tools:context=".ProfileView_Activity">
 
     <TextView
-        android:id="@+id/ageField"
-        android:layout_width="326dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
-        android:background="#B58B8B"
-        android:text="TextView"
+        android:id="@+id/AgeField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:textSize="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NameField" />
 
     <Button
         android:id="@+id/button_SearchBesttie"
@@ -36,15 +33,15 @@
 
     <TextView
         android:id="@+id/NameField"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="32dp"
-        android:background="#B58B8B"
         android:text=""
         android:textSize="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_SearchBesttie"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileViewPicture" />
 
@@ -69,6 +66,16 @@
         app:layout_constraintBottom_toTopOf="@+id/profileViewPicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Button"
+        android:onClick="openGameInfo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 

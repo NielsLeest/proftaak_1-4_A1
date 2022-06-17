@@ -114,7 +114,6 @@ public class LogIn_Activity extends AppCompatActivity {
      */
 
     public void toProfileView(View view) {
-
         pictureHandler.saveImageID(images[currentImage]); //Saves ID of selected image
         Intent intent = new Intent(this, ProfileView_Activity.class);
         intent.putExtra("firstTime", true);

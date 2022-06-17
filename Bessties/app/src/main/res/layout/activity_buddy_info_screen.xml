@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Queue_Activity">
+    tools:context=".BuddyInfo_Activity">
 
     <Button
         android:id="@+id/ToBuddyLocation"
@@ -33,7 +33,7 @@
     <FrameLayout
         android:layout_width="350dp"
         android:layout_height="240dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/add_outline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.434"
@@ -48,23 +48,23 @@
             android:translationY="50dp"
             app:srcCompat="@drawable/avatar_icon" />
 
+        <!--        <TextView-->
+        <!--            android:id="@+id/foundBuddy_lastName"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="@string/queue_last_name"-->
+        <!--            android:textSize="20sp"-->
+        <!--            android:translationX="200dp"-->
+        <!--            android:translationY="100dp" />-->
+
         <TextView
             android:id="@+id/foundBuddy_firstName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="127dp"
+            android:layout_height="82dp"
             android:text="@string/queue_first_name"
             android:textSize="20sp"
             android:translationX="200dp"
             android:translationY="50dp" />
-
-        <TextView
-            android:id="@+id/foundBuddy_lastName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/queue_last_name"
-            android:textSize="20sp"
-            android:translationX="200dp"
-            android:translationY="100dp" />
 
         <TextView
             android:id="@+id/foundBuddy_age"

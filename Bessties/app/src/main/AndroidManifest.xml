@@ -23,7 +23,7 @@
             android:label="@string/backToProfile"
             android:parentActivityName=".ProfileView_Activity" />
         <activity
-            android:name=".Queue_Activity"
+            android:name=".BuddyInfo_Activity"
             android:exported="false"
             android:label="@string/backToProfile"
             android:parentActivityName=".ProfileView_Activity" />
