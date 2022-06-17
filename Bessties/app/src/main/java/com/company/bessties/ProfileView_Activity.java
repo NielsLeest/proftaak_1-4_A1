@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.company.bessties.socket.Client;
@@ -116,7 +115,7 @@ public class ProfileView_Activity extends AppCompatActivity {
 
     public void openQueue(View view) {
 
-        Intent intent = new Intent(this, waitingscreen_activity.class);
+        Intent intent = new Intent(this, Waitingscreen_activity.class);
         //intent.putExtra("loadingInfo", "@string/buddySearchText");
         intent.putExtra("loadingInfo", getResources().getString(R.string.buddySearchText));
 

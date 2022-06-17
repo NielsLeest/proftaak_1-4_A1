@@ -3,12 +3,10 @@ package com.company.bessties;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 
 /**
  * Public class GameInfo_Activity
@@ -70,7 +68,11 @@ public class GameInfo_Activity extends AppCompatActivity {
      */
 
     public void openGameComplete(View view) {
-        Intent intent = new Intent(this, GameComplete_Activity.class);
+        //Intent intent = new Intent(this, GameComplete_Activity.class);
+        //startActivity(intent);
+
+        Intent intent = new Intent(this, Waitingscreen_activity.class);
+        intent.putExtra("loadingInfo", getResources().getString(R.string.inGameText));
         startActivity(intent);
     }
 }

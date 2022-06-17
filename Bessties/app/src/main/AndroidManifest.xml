@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Background">
         <activity
-            android:name=".waitingscreen_activity"
+            android:name=".Waitingscreen_activity"
             android:exported="false" />
         <activity
             android:name=".BuddyLocation_Activity"

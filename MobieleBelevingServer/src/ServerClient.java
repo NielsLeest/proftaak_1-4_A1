@@ -22,7 +22,6 @@ public class ServerClient {
     private PrintWriter writer;
     public boolean startgame = false;
 
-
     public void setGame(GameServer game) {
         this.game = game;
     }

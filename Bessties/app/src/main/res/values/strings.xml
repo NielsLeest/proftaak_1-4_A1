@@ -54,7 +54,7 @@
     <string name="newGameButton_text">Nieuw spel</string>
 
     <!--Waiting screen -->
-    <string name="buddySearchText" >Buddy zoeken...</string>
+    <string name="buddySearchText" >Besstie zoeken...</string>
     <string name="inGameText" >Spel is bezig...</string>
 
     <!--Menu bar-->

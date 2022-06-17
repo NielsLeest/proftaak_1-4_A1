@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.company.bessties.socket.Client;
 import com.company.bessties.socket.SingleSocket;
 
-public class waitingscreen_activity extends AppCompatActivity {
+public class Waitingscreen_activity extends AppCompatActivity {
     private Client client;
 
 
