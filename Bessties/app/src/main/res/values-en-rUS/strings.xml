@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bessties</string>
+    <string name="login_top">Create an account</string>
+    <string name="to_queue">Go to profile</string>
+    <string name="to_location">Go to the game\'s location</string>
+    <string name="hint_button">Hint!</string>
+    <string name="found">Found!</string>
+    <string name="go_back">Go back</string>
+    <string name="gameInfo_title">Game info</string>
+    <string name="gameInfo_text">sample text</string>
+    <string name="startGameButton_text">Start game</string>
+    <string name="gameComplete_title">Game completed</string>
+    <string name="gameComplete_text">sample text</string>
+    <string name="newGameButton_text">Start new game</string>
+    <string name="continueButton_text">Continue</string>
+    <string name="searchAgain_text">Search again</string>
+    <string name="firstname_invalid">The submitted first name is invalid</string>
+    <string name="lastname_invalid">The submitted last name is invalid</string>
+    <string name="age_invalid">You are too young</string>
+    <string name="meetBuddyTitle_text">Meet your besstie at the entrance. Here you\'ll find the sign below.</string>
+    <string name="startButton_text">Start</string>
+    <string name="buddyLocationMap_ContentDescription">BesstieLocationMap</string>
+    <string name="backToProfile">Previous page</string>
+    <string name="login_firstName">First name</string>
+    <string name="login_lastName">Last name</string>
+    <string name="login_age">Age</string>
+    <string name="hint_text">Winding paths with thorny hedges,   Entrance and exit both on edges,   Lots of choices and dead ends,   The solution is found only with friends.</string>
+</resources>
