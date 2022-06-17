@@ -6,7 +6,7 @@ public class Person implements Serializable {
     private String barcode;
     private String age;
 
-    public Person(String userName, String age, String barcode){
+    public Person(String userName, String age, String barcode) {
         this.userName = userName;
         this.age = age;
         this.barcode = barcode;
@@ -16,7 +16,7 @@ public class Person implements Serializable {
         return this.userName;
     }
 
-    public String getAge(){
+    public String getAge() {
         return this.age;
     }
 

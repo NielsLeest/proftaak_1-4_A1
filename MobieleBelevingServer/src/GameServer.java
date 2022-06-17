@@ -14,44 +14,45 @@ public class GameServer {
         new Thread(this::startGameserver).start();
     }
 
+    /**
+     * initialises the game server
+     */
     private void startGameserver() {
 
-            while (socket.isConnected()) {
-                try {
-                    DOS = new DataOutputStream(socket.getOutputStream());
-                    DIS = new DataInputStream(socket.getInputStream());
+        while (socket.isConnected()) {
+            try {
+                DOS = new DataOutputStream(socket.getOutputStream());
+                DIS = new DataInputStream(socket.getInputStream());
 
 
-
-                    while(true){
-                        if(DIS.available()>0) {
-                            int length = DIS.available();
-                            byte[] myMessage = new byte[length];
-                            DIS.readFully(myMessage);
-                            String clientMessage = translate(myMessage);
-                            if (clientMessage.equals("game end")){
+                while (true) {
+                    if (DIS.available() > 0) {
+                        int length = DIS.available();
+                        byte[] myMessage = new byte[length];
+                        DIS.readFully(myMessage);
+                        String clientMessage = translate(myMessage);
+                        if (clientMessage.equals("game end")) {
 //                                Server.killserver();
-                            }
-                            System.out.println(clientMessage);
                         }
+                        System.out.println(clientMessage);
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
-
-
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            if(!socket.isConnected()){
-                Server.killserver();
+
+
+        }
+        if (!socket.isConnected()) {
+            Server.killserver();
 
         }
     }
 
-
-
-
-
-    public void startGame(){
+    /**
+     * starts the physical maze game
+     */
+    public void startGame() {
         try {
             System.out.println("the game is starting up");
             DOS.writeUTF("A");
@@ -62,13 +63,18 @@ public class GameServer {
         }
 
     }
-    private static String translate(byte[] word)
-    {
-        String translatedMessage = "";
-        for(int i=0; i<word.length; i++) {
-            translatedMessage = translatedMessage + (char) word[i];
+
+    /**
+     * converts bytes to a string
+     * @param word the bytes to convert
+     * @return the obtained string
+     */
+    private static String translate(byte[] word) {
+        StringBuilder translatedMessage = new StringBuilder();
+        for (byte b : word) {
+            translatedMessage.append((char) b);
         }
 
-        return translatedMessage;
+        return translatedMessage.toString();
     }
 }

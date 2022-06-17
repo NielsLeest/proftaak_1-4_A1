@@ -19,9 +19,10 @@ public class Team {
             members.get(0).leaveTeam();
         }
     }
-    public boolean game(){
-        for (ServerClient s:members){
-            if(!s.startgame){
+
+    public boolean game() {
+        for (ServerClient s : members) {
+            if (!s.startgame) {
                 return false;
             }
 

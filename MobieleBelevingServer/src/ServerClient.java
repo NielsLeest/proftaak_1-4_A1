@@ -29,12 +29,12 @@ public class ServerClient {
 
     private GameServer game;
 
-    public ServerClient(Socket socket,MatchQueue que) {
+    public ServerClient(Socket socket, MatchQueue que) {
         this.socket = socket;
         try {
             this.input = new DataInputStream(this.socket.getInputStream());
 //            this.output = new DataOutputStream(this.socket.getOutputStream());
-            this.writer =  new PrintWriter(socket.getOutputStream(), true);
+            this.writer = new PrintWriter(socket.getOutputStream(), true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,29 +49,29 @@ public class ServerClient {
         while (this.socket.isConnected()) {
             try {
 
-                while(this.input.available() > 0) {
+                while (this.input.available() > 0) {
                     String request = input.readUTF();
                     System.out.println(request);
                     String[] chunks = request.split("/");
 
                     switch (chunks[0]) {
 
-                        case"startgame":
+                        case "startgame":
                             this.startgame = true;
-                            System.out.println(this.getPerson()+" wants to start");
-                            if(team.game()){
+                            System.out.println(this.getPerson() + " wants to start");
+                            if (team.game()) {
                                 System.out.println("let the game begin!");
                                 Server.mazeGame.startGame();
                             }
                             break;
 
                         case "pending":
-                            if(pendingRequest != null) {
+                            if (pendingRequest != null) {
                                 writer.println(pendingRequest.getPerson().getUserName());
                                 writer.flush();
                                 writer.println(pendingRequest.getPerson().getAge());
                                 writer.flush();
-                            }else{
+                            } else {
                                 writer.println("Midas");
                                 writer.println("55");
                                 writer.flush();
@@ -96,7 +96,7 @@ public class ServerClient {
 
                             }
                             System.out.println(chunks[3]);
-                            this.person = new Person(chunks[1] +" "+ chunks[2], chunks[3], "0");
+                            this.person = new Person(chunks[1] + " " + chunks[2], chunks[3], "0");
 //                            boolean isLoggedIn = handleLogin(person);
 //                            this.writer.write(isLoggedIn+"");
 //                            this.writer.flush();
@@ -106,7 +106,7 @@ public class ServerClient {
                             ObjectOutputStream ous = new ObjectOutputStream(this.output);
                             if (chunks[1].equals("name"))
 //                                ous.writeObject(this.person.getUserName());
-                               this.writer.write(this.person.getUserName());
+                                this.writer.write(this.person.getUserName());
                             if (chunks[1].equals("Age"))
 //                                ous.writeObject(this.person.getAge());
                                 this.output.writeUTF(this.person.getAge());
@@ -115,7 +115,7 @@ public class ServerClient {
                         case "join":
                             if (this.person == null) {
                                 break;
-                            }else {
+                            } else {
                                 Server.queue.join(this);
                             }
                             break;
@@ -145,9 +145,9 @@ public class ServerClient {
 
                             pendingRequest.otherAccepted = true;
                             if (this.otherAccepted) {
-                                if(pendingRequest.team == null) {
+                                if (pendingRequest.team == null) {
                                     team = new Team();
-                                }else {
+                                } else {
                                     team = pendingRequest.team;
                                 }
                                 team.join(this);
@@ -161,7 +161,7 @@ public class ServerClient {
                 }
 
 
-                }catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -231,15 +231,15 @@ public class ServerClient {
     }
 
 
-    public InetAddress getClientIP(){
+    public InetAddress getClientIP() {
         return this.clientIP;
     }
 
 
-    public void send(String s){
-        System.out.println("send "+ s);
-            writer.println(s);
-            writer.flush();
+    public void send(String s) {
+        System.out.println("send " + s);
+        writer.println(s);
+        writer.flush();
 
     }
 }
