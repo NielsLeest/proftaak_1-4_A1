@@ -55,7 +55,7 @@ public class ProfileView_Activity extends AppCompatActivity {
         image.setImageResource(pictureHandler.getImageID());
 
         name  = (TextView)findViewById(R.id.NameField);
-        age = (TextView) findViewById(R.id.ageField);
+        age = (TextView) findViewById(R.id.AgeField);
 
 
 
@@ -119,6 +119,11 @@ public class ProfileView_Activity extends AppCompatActivity {
         //intent.putExtra("loadingInfo", "@string/buddySearchText");
         intent.putExtra("loadingInfo", getResources().getString(R.string.buddySearchText));
 
+        startActivity(intent);
+    }
+
+    public void openGameInfo(View view) {
+        Intent intent = new Intent(this, GameInfo_Activity.class);
         startActivity(intent);
     }
 }

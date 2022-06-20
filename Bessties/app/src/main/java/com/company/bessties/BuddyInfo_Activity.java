@@ -19,9 +19,9 @@ import com.company.bessties.socket.SingleSocket;
  * Creates functionalities for the Queue screen
  */
 
-public class Queue_Activity extends AppCompatActivity {
+public class BuddyInfo_Activity extends AppCompatActivity {
     private Client client;
-    private String opponentName;
+    private String buddyName;
     private String age;
     private int image;
     TextView name;
@@ -37,7 +37,7 @@ public class Queue_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_queue_screen);
+        setContentView(R.layout.activity_buddy_info_screen);
         name =  (TextView)findViewById(R.id.foundBuddy_firstName);
         ageBox = (TextView)findViewById(R.id.foundBuddy_age);
         imageView = (ImageView)findViewById(R.id.image_found_buddy);
@@ -95,7 +95,7 @@ public class Queue_Activity extends AppCompatActivity {
 
     public void openBuddyLocation(View view) {
         client.send("accept");
-        Intent intent = new Intent(this, ToGame_Activity.class);
+        Intent intent = new Intent(this, BuddyLocation_Activity.class);
         startActivity(intent);
     }
 
@@ -107,18 +107,18 @@ public class Queue_Activity extends AppCompatActivity {
 
     public void retryQueue(View view) {
         client.send("decline");
-        Intent intent = new Intent(this, Queue_Activity.class);
+        Intent intent = new Intent(this, BuddyInfo_Activity.class);
         startActivity(intent);
     }
 
     public void setCard(){
 
-        opponentName= client.read();
+        buddyName = client.read();
         age = client.read();
         image = Integer.parseInt(client.read());
 
 
-        name.setText(this.opponentName);
+        name.setText(this.buddyName);
         ageBox.setText(this.age);
         Log.i("image id", String.valueOf(image));
         imageView.setImageResource(image);

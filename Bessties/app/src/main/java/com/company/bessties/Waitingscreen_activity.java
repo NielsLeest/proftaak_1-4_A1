@@ -36,7 +36,7 @@ public class Waitingscreen_activity extends AppCompatActivity {
     private void waitingforplayer() {
 
 
-        Intent next = new Intent(this, Queue_Activity.class);
+        Intent next = new Intent(this, BuddyInfo_Activity.class);
         client.send("join");
         client.handleConnection();
 

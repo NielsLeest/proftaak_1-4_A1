@@ -18,7 +18,7 @@ public class Person implements Serializable {
         return this.userName;
     }
 
-    public String getAge(){
+    public String getAge() {
         return this.age;
     }
 

@@ -71,6 +71,6 @@ public class Validation {
      */
 
     public static boolean nameIsValid(String name){
-        return name.matches("^[a-zA-Záéíóúàèìòùâêîôûãõñç]{2,32}$");
+        return name.matches("^[a-zA-Záéíóúàèìòùâêîôûãõñç ]{2,32}$");
     }
 }

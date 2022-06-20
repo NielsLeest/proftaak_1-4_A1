@@ -8,9 +8,9 @@
 
     <!--Login screen-->
     <string name="login_title">Maak een account</string>
-    <string name="login_first_name">\t Voornaam</string>
-    <string name="login_last_name">\t Achternaam</string>
-    <string name="login_age">\t Leeftijd</string>
+    <string name="login_first_name">Voornaam</string>
+    <string name="login_last_name">Achternaam</string>
+    <string name="login_age">Leeftijd</string>
     <string name="login_to_profile">Ga naar profiel</string>
     <string name="login_skip_button">Button</string>
     <!--Login invalid-->
@@ -26,7 +26,7 @@
     <string name="queue_first_name">First name</string>
     <string name="queue_last_name">Last name</string>
     <string name="queue_age">Age</string>
-    <string name="queue_found_buddy">Gevonden bestie</string>
+    <string name="queue_found_buddy">Besstie gevonden</string>
     <string name="queue_search_again">Opnieuw zoeken</string>
 
     <!--Buddy screen-->
@@ -45,12 +45,11 @@
 
     <!--Game info screen-->
     <string name="game_info_title">Game informatie</string>
-    <string name="game_info_text">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</string>
-    <string name="game_info_start_button">Start spel</string>
+    <string name="game_info_text">\Welkom in het doolhof. \nOm dit spel te halen zullen jullie moeten samenwerken. Het spel is simpel, vind de weg door het doolhof en navigeer jezelf naar het einde. \nHet probleem is dat je niet samen door het doolhof kan navigeren. Om dit op te lossen zal een persoon het doolhof navigeren en de andere het doolhof observeren. De observant moet aanwijzingen geven, zodat er veilig het doolhof uit kan worden genavigeerd. Bij contact met een muur zal er een buzzer afgaan om aan te geven dat je niet verder kan in de gewenste richting. \nNa het ontsnappen zal er een nieuw doolhof ontstaan waarbij je een kortere tijd hebt om te ontsnappen. Weinigen van jullie is het al gelukt veilig het doolhof te ontsnappen. Weet jij het doolhof te overmeesteren? Heel veel plezier en succes.</string>    <string name="game_info_start_button">Start spel</string>
 
     <!--Game complete screen-->
     <string name="game_complete_title">Spel voltooid</string>
-    <string name="game_complete_text">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</string>
+    <string name="game_complete_text">\Gefeliciteerd!!! \nJe bent veilig het doolhof uitgekomen. Wees trots op elkaar en bedank elkaar. \nVond je zelf dat het allemaal iets te langzaam ging of vonden jullie het zo leuk dat jullie het nog een keer willen proberen. Kom later dan nog een keer terug en kijk hoe ver jullie vooruit kunnen gaan en of jullie je score kunnen verbeteren! </string>
     <string name="newGameButton_text">Nieuw spel</string>
 
     <!--Waiting screen -->
