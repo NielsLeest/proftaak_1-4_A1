@@ -52,9 +52,6 @@ public class LogIn_Activity extends AppCompatActivity {
 
         currentImageView = (ImageView) findViewById(R.id.profilePicture);
 
-
-
-
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);
         ageInput = (EditText) findViewById(R.id.ageInput);
