@@ -45,6 +45,9 @@ public class ServerClient {
 
     }
 
+    /**
+     * the main loop used for in- and output handling
+     */
     public void handleRequest() {
         while (this.socket.isConnected()) {
             try {
@@ -182,6 +185,9 @@ public class ServerClient {
         return this.person;
     }
 
+    /**
+     * sends a request to the other person
+     */
     public void uploadRequest() {
         this.otherAccepted = false;
         try {
@@ -192,6 +198,10 @@ public class ServerClient {
         }
     }
 
+    /**
+     * revokes a request sent to another person
+     * @param person the person the request was sent to
+     */
     public void revokeRequest(ServerClient person) {
         try {
             buddyQueue.remove(person);
@@ -204,6 +214,10 @@ public class ServerClient {
         }
     }
 
+    /**
+     * get a new person from the queue
+     * @return true if successful
+     */
     public boolean pollRequest() {
         if (pendingRequest == null && !buddyQueue.isEmpty()) {
             pendingRequest = buddyQueue.poll();
@@ -212,12 +226,19 @@ public class ServerClient {
         return false;
     }
 
+    /**
+     * joins a team
+     * @param team the team to join
+     */
     public void joinTeam(Team team) {
         this.team = team;
         team.join(this);
         Server.queue.leave(this);
     }
 
+    /**
+     * leaves the team you were in
+     */
     public void leaveTeam() {
         this.team.leave(this);
         this.team = null;
@@ -235,7 +256,10 @@ public class ServerClient {
         return this.clientIP;
     }
 
-
+    /**
+     * sends a message to the client
+     * @param s the message
+     */
     public void send(String s) {
         System.out.println("send " + s);
         writer.println(s);
