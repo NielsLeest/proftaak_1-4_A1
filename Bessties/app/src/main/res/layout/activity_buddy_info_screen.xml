@@ -60,11 +60,11 @@
         <TextView
             android:id="@+id/foundBuddy_firstName"
             android:layout_width="127dp"
-            android:layout_height="82dp"
+            android:layout_height="wrap_content"
             android:text="@string/queue_first_name"
             android:textSize="20sp"
             android:translationX="200dp"
-            android:translationY="50dp" />
+            android:translationY="75dp" />
 
         <TextView
             android:id="@+id/foundBuddy_age"
