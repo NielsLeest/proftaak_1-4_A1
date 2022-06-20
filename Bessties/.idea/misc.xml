@@ -3,10 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
-        <entry key="..\:/Users/niels/Documents/School/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_game_complete_screen.xml" value="0.264" />
-        <entry key="..\:/Users/niels/Documents/School/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_log_in_screen.xml" value="0.11018518518518519" />
-=======
         <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_buddy_location.xml" value="0.2359375" />
         <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_game_complete_screen.xml" value="0.20878623188405798" />
         <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_game_info_screen.xml" value="0.20878623188405798" />
@@ -15,21 +11,7 @@
         <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profile_view_screen.xml" value="0.25" />
         <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_scan_screen.xml" value="0.20878623188405798" />
         <entry key="..\:/Avans/AEI-Technische informatica/Periode 4/Project Essteling/GIT-project/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_to_game_screen.xml" value="0.25" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2805" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/drawable/add_clear_outline.xml" value="0.2805" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/drawable/add_outline.xml" value="0.2805" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/drawable/ic_baseline_arrow_left_24.xml" value="0.2805" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_buddy_location.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_game_complete_screen.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_game_info_screen.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_log_in_screen.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profile_view_screen.xml" value="0.18885869565217392" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_queue_screen.xml" value="0.25" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_scan_screen.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_to_game_screen.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_waitingscreen.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/menu/menubar.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2805" />
+        <entry key="..\:/Users/midas/Documents/school/jaar 1/periode 3/proftaak/proftaakRepo/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profile_view_screen.xml" value="0.2" />
         <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.185" />
         <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/drawable/ic_launcher_background.xml" value="0.185" />
         <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_buddy_location.xml" value="0.22826086956521738" />
@@ -40,12 +22,12 @@
         <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profiel_overzicht_scherm.xml" value="0.14673913043478262" />
         <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profiel_scherm.xml" value="0.22780797101449277" />
-        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profile_view_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_profile_view_screen.xml" value="0.25" />
         <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_queue_screen.xml" value="0.264" />
-        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_scan_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_scan_screen.xml" value="0.25" />
         <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_spel_uitleg_scherm.xml" value="0.22780797101449277" />
         <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_to_game_screen.xml" value="0.2" />
->>>>>>> testbranch
+        <entry key="..\:/Users/tommy/OneDrive/Documenten/Avans/Proftaak-1.4/proftaak_1-4_A1/Bessties/app/src/main/res/layout/activity_waitingscreen.xml" value="0.1" />
       </map>
     </option>
   </component>

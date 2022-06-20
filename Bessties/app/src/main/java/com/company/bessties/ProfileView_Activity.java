@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.company.bessties.socket.Client;
@@ -56,7 +55,7 @@ public class ProfileView_Activity extends AppCompatActivity {
         image.setImageResource(pictureHandler.getImageID());
 
         name  = (TextView)findViewById(R.id.NameField);
-        age = (TextView) findViewById(R.id.ageField);
+        age = (TextView) findViewById(R.id.AgeField);
 
 
 
@@ -118,6 +117,11 @@ public class ProfileView_Activity extends AppCompatActivity {
 
         Intent intent = new Intent(this, waitingscreen_activity.class);
 
+        startActivity(intent);
+    }
+
+    public void openGameInfo(View view) {
+        Intent intent = new Intent(this, GameInfo_Activity.class);
         startActivity(intent);
     }
 }

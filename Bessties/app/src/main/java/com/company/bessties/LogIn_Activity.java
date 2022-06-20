@@ -52,9 +52,6 @@ public class LogIn_Activity extends AppCompatActivity {
 
         currentImageView = (ImageView) findViewById(R.id.profilePicture);
 
-
-
-
         firstNameInput = (EditText) findViewById(R.id.firstNameInput);
         lastNameInput = (EditText) findViewById(R.id.lastNameInput);
         ageInput = (EditText) findViewById(R.id.ageInput);
@@ -114,7 +111,6 @@ public class LogIn_Activity extends AppCompatActivity {
      */
 
     public void toProfileView(View view) {
-
         pictureHandler.saveImageID(images[currentImage]); //Saves ID of selected image
         Intent intent = new Intent(this, ProfileView_Activity.class);
         intent.putExtra("firstTime", true);

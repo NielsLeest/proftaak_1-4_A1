@@ -8,7 +8,8 @@ import java.util.Scanner;
 public class Server {
     //Namen kunnen niet met spaties nu!!
     private static ArrayList<ServerClient> clients = new ArrayList<>();
-    public static ArrayList<String> barcodes = new ArrayList<>(Arrays.asList("1234", "543210", "49302"));
+    public static ArrayList<String> barcodes = new ArrayList<>(Arrays.asList("1234", "543210","49302",
+            "Essteling_123456", "Essteling_694200", "Essteling_691337", "Essteling_482909"));
     public static GameServer mazeGame;
     public static MatchQueue queue = new MatchQueue();
 
