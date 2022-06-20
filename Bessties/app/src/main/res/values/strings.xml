@@ -8,9 +8,9 @@
 
     <!--Login screen-->
     <string name="login_title">Maak een account</string>
-    <string name="login_first_name">\t Voornaam</string>
-    <string name="login_last_name">\t Achternaam</string>
-    <string name="login_age">\t Leeftijd</string>
+    <string name="login_first_name">Voornaam</string>
+    <string name="login_last_name">Achternaam</string>
+    <string name="login_age">Leeftijd</string>
     <string name="login_to_profile">Ga naar profiel</string>
     <string name="login_skip_button">Button</string>
     <!--Login invalid-->
