@@ -20,11 +20,13 @@ public class Client {
     private String firstName;
     private String lastName;
     private int age;
+    private int image;
     private String barcode;
     private DataOutputStream dos;
 //    private DataInputStream dis;
     private BufferedReader input;
     public Boolean que = false;
+    public Boolean gameEnd = false;
 
     private boolean validation = false;
 
@@ -88,6 +90,10 @@ public class Client {
 
     public void setBarcode(String barcode) {
         this.barcode = barcode;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 
     public String getFirstName() {
@@ -187,23 +193,24 @@ if(input.readLine().equals("true")){
 //    }
 
     public void handleConnection() {
-String s = "";
-            while (true) {
-                try {
-                    s = input.readLine();
-                    System.out.printf(s);
-                    switch (s){
-                        case"found":
-                            this.que = true;
-                            break;
-
-                    }
-                    if(s.equals("found")) break;
-                } catch (IOException e) {
-                    e.printStackTrace();
+        String s = "";
+        while (true) {
+            try {
+                s = input.readLine();
+                System.out.printf(s);
+                switch (s){
+                    case"found":
+                        this.que = true;
+                        break;
+                    case "game end":
+                        this.gameEnd = true;
+                        break;
                 }
+                if(s.equals("found") || s.equals("game end")) break;
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
+        }
     }
     public String read(){
 

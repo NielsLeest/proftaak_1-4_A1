@@ -1,3 +1,5 @@
+import javafx.scene.image.ImageView;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -70,6 +72,8 @@ public class ServerClient {
                                 writer.flush();
                                 writer.println(pendingRequest.getPerson().getAge());
                                 writer.flush();
+                                writer.println(pendingRequest.getPerson().getImage());
+                                writer.flush();
                             }else{
                                 writer.println("Midas");
                                 writer.println("55");
@@ -94,8 +98,8 @@ public class ServerClient {
                                 System.out.println(s);
 
                             }
-                            System.out.println(chunks[3]);
-                            this.person = new Person(chunks[1] +" "+ chunks[2], chunks[3], "0");
+                            System.out.println("image " + chunks[4]);
+                            this.person = new Person(chunks[1] +" "+ chunks[2], chunks[3], "0", Integer.parseInt(chunks[4]));
 //                            boolean isLoggedIn = handleLogin(person);
 //                            this.writer.write(isLoggedIn+"");
 //                            this.writer.flush();

@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.company.bessties.socket.Client;
@@ -21,8 +23,10 @@ public class Queue_Activity extends AppCompatActivity {
     private Client client;
     private String opponentName;
     private String age;
+    private int image;
     TextView name;
     TextView ageBox;
+    ImageView imageView;
 
     /**
      * Method onCreate
@@ -36,6 +40,7 @@ public class Queue_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_queue_screen);
         name =  (TextView)findViewById(R.id.foundBuddy_firstName);
         ageBox = (TextView)findViewById(R.id.foundBuddy_age);
+        imageView = (ImageView)findViewById(R.id.image_found_buddy);
         this.client = SingleSocket.getInstance().client;
 
         client.send("pending");
@@ -110,9 +115,12 @@ public class Queue_Activity extends AppCompatActivity {
 
         opponentName= client.read();
         age = client.read();
+        image = Integer.parseInt(client.read());
 
 
         name.setText(this.opponentName);
         ageBox.setText(this.age);
+        Log.i("image id", String.valueOf(image));
+        imageView.setImageResource(image);
     }
 }

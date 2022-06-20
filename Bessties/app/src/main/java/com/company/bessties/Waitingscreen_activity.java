@@ -19,9 +19,14 @@ public class Waitingscreen_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waitingscreen);
         this.client = SingleSocket.getInstance().client;
-        new Thread(()->waitingforplayer()).start();
-
         String loadingInfo = getIntent().getStringExtra("loadingInfo");
+        if(loadingInfo.equals("Besstie zoeken...")){
+            new Thread(() -> waitingforplayer()).start();
+        }
+        else {
+            new Thread(() -> waitForGameEnd()).start();
+        }
+
         Log.i("msg", loadingInfo);
         TextView loadInfoText = findViewById(R.id.textView);
         loadInfoText.setText(loadingInfo);
@@ -35,11 +40,17 @@ public class Waitingscreen_activity extends AppCompatActivity {
         client.send("join");
         client.handleConnection();
 
-            if (client.que) {
-                startActivity(next);
-            }
+        if (client.que) {
+            startActivity(next);
         }
+    }
 
+    private void waitForGameEnd(){
+        Intent next = new Intent(this, GameComplete_Activity.class);
+        client.handleConnection();
 
-
+        if(client.gameEnd) {
+            startActivity(next);
+        }
+    }
 }

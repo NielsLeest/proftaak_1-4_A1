@@ -23,6 +23,7 @@ public class LogIn_Activity extends AppCompatActivity {
     String lastName;
     int age;
     String barcode;
+    int image;
     EditText firstNameInput;
     EditText lastNameInput;
     EditText ageInput;
@@ -85,18 +86,21 @@ public class LogIn_Activity extends AppCompatActivity {
         catch (Exception e){
             return;
         }
+        image = images[currentImage];
+
 //        barcode = barcodeInput.getText().toString();
 
         this.client.setFirstName(firstname);
         this.client.setLastName(lastName);
         this.client.setAge(age);
         this.client.setBarcode(barcode);
+        this.client.setImage(image);
 
         String isValid = Validation.validateLogin(this.client, this);
 
         if(isValid.equals("valid")){
             new Thread(()->{
-                this.client.send("login/"+firstname+"/"+lastName+"/"+age);
+                this.client.send("login/"+firstname+"/"+lastName+"/"+age+"/"+image);
             }).start();
             pictureHandler.saveImageID(images[currentImage]);
             Intent intent = new Intent(this, ProfileView_Activity.class);
